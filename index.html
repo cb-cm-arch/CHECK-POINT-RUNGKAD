@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHECK POINT RUNGKAD</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+
+  background: url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: -1;
+}
+
+/* 🔥 LOGO ATAS (FIXED) */
+.logo-top {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.logo-top img {
+  width: 500px;   /* 🔥 BESARIN */
+  max-width: 95%; /* biar tetap aman di mobile */
+}
+
+/* CENTER LOGIN */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LOGIN BOX */
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 24px;
+  border-radius: 16px;
+  text-align: center;
+
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.6);
+
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.login-box h2 {
+  margin-bottom: 15px;
+  font-size: 16px; /* 🔥 kecilin di sini */
+}
+
+.login-box input {
+  width: 70%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 12px;
+}
+
+.login-box button {
+  width: 30%;
+  padding: 10px;
+  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  transform: scale(1.05);
+}
+
+/* CHECKLIST */
+.container {
+  display: none;
+  width: 100%;
+  max-width: 520px;
+  padding: 25px;
+  border-radius: 16px;
+
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.7);
+
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* PROGRESS */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+/* ITEM */
+.item {
+  display: flex;
+  align-items: center;
+  background: rgba(2,6,23,0.9);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #22c55e;
+}
+/* WRAPPER HARUS RELATIVE */
+.wrapper {
+  position: relative;
+}
+
+/* GIF CENTER */
+.gif-floating {
+  position: absolute;
+  top: 38%; /* posisi vertikal (atur di sini) */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* GIF RESPONSIVE */
+.gif-floating img {
+  width: clamp(180px, 30vw, 320px);
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 LOGO ATAS -->
+<div class="logo-top">
+  <img src="https://i.postimg.cc/Znrff8n4/POINT-ANTI-RUNGKAD-4-22-2026.png">
+</div>
+
+<!-- CENTER -->
+<div class="wrapper">
+
+<div class="gif-floating">
+  <img src="https://clickbet88sedekahrejeki05.xyz/storage/webpersonalize/d54f5304-03b3-49f7-b283-e6fe0c595ca7.gif">
+</div>
+
+  <div class="login-box" id="loginBox">
+    <h2></h2>
+    <input type="text" id="username" placeholder="🔍 CHECK POINT
+">
+    <button onclick="loadUser()">CHECK SEKARANG</button>
+  </div>
+
+  <div class="container" id="app">
+    <div class="title">🔥 CHECK POINT RUNGKAD 🔥</div>
+
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="item"><input type="checkbox"><label>Login akun berhasil</label></div>
+    <div class="item"><input type="checkbox"><label>Deposit sukses</label></div>
+    <div class="item"><input type="checkbox"><label>Main game minimal 10x spin</label></div>
+    <div class="item"><input type="checkbox"><label>Menang jackpot</label></div>
+    <div class="item"><input type="checkbox"><label>Withdraw berhasil</label></div>
+  </div>
+
+</div>
+
+<script>
+const sheetURL = "https://docs.google.com/spreadsheets/d/XXX/export?format=csv";
+
+const checkboxes = document.querySelectorAll("input[type=checkbox]");
+const progress = document.getElementById("progress");
+
+function updateProgress() {
+  let total = checkboxes.length;
+  let checked = 0;
+
+  checkboxes.forEach(cb => {
+    if (cb.checked) {
+      checked++;
+      cb.nextElementSibling.classList.add("done");
+    } else {
+      cb.nextElementSibling.classList.remove("done");
+    }
+  });
+
+  progress.style.width = (checked / total * 100) + "%";
+}
+
+function loadUser() {
+  const username = document.getElementById("username").value.toLowerCase();
+
+  if (!username) {
+    alert("Masukkan username dulu!");
+    return;
+  }
+
+  fetch(sheetURL)
+    .then(res => res.text())
+    .then(data => {
+      const rows = data.split("\n").slice(1);
+      let found = false;
+
+      rows.forEach(row => {
+        const cols = row.split(",");
+
+        if (cols[0].toLowerCase() === username) {
+          found = true;
+
+          checkboxes[0].checked = cols[1].trim() === "TRUE";
+          checkboxes[1].checked = cols[2].trim() === "TRUE";
+          checkboxes[2].checked = cols[3].trim() === "TRUE";
+          checkboxes[3].checked = cols[4].trim() === "TRUE";
+          checkboxes[4].checked = cols[5].trim() === "TRUE";
+
+          updateProgress();
+
+          document.getElementById("loginBox").style.display = "none";
+          document.getElementById("app").style.display = "block";
+        }
+      });
+
+      if (!found) alert("Username tidak ditemukan!");
+    });
+}
+</script>
+
+</body>
+</html>
