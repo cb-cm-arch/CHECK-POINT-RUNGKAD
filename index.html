@@ -6,7 +6,12 @@
 <title>CHECK POINT RUNGKAD</title>
 
 <style>
-body {
+/* 🔥 HIDE DEFAULT (SEMUA DEVICE) */
+.wa-desktop,
+.tele-desktop {
+  display: none;
+}
+  body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: white;
@@ -161,10 +166,272 @@ body::before {
   width: clamp(180px, 30vw, 320px);
   height: auto;
 }
+ .livechat-kanan {
+  position: fixed;
+  right: 15px;   /* tetap kanan */
+  bottom: 120px; /* 🔥 naik ke atas */
+  z-index: 10000;
+}
+
+.livechat-kanan img {
+  width: 140px;
+  border-radius: 10px;
+}
+.livechat-kanan img {
+  width: 180px;
+  max-width: 35vw;
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .livechat-kanan {
+    right: 10px;
+    bottom: 130px !important; /* 🔥 NAIK KE ATAS */
+  }
+
+  .livechat-kanan img {
+    width: 130px;
+  }
+}
+  /* DEFAULT HIDE */
+.nav-desktop {
+  display: none !important;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  .nav-desktop {
+    display: flex !important;
+
+    position: fixed;
+    bottom: 0;   /* 🔥 pindah ke bawah */
+    left: 0;
+    right: 0;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+  }
+
+  .nav-left, .nav-center, .nav-right {
+    flex: 1;
+  }
+
+  .nav-left { text-align: left; }
+  .nav-center { text-align: center; }
+  .nav-right { text-align: right; }
+
+  .nav-desktop a {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  /* 🔥 BIAR KONTEN GAK KETUTUP */
+  body {
+    padding-bottom: 60px;
+  }
+}
+  /* HIDE DEFAULT */
+.nav-game {
+  display: none;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+.nav-game {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 6px 0;
+
+  /* 💎 GLASS + GRADIENT */
+  background: linear-gradient(135deg, rgba(0, 140, 255, 0.9), rgba(0, 50, 120, 0.95));
+  backdrop-filter: blur(12px);
+
+  /* ✨ GLOW ATAS */
+  border-top: 1px solid rgba(0,255,255,0.6);
+  box-shadow: 0 -5px 25px rgba(0, 200, 255, 0.6);
+
+  z-index: 999;
+}
+  .nav-item img {
+  width: 28px;
+  height: 28px;
+
+  /* ✨ glow neon */
+  filter: drop-shadow(0 0 8px rgba(0,255,255,0.9));
+
+  transition: 0.3s;
+}
+
+/* 🔥 efek hover */
+.nav-item img:hover {
+  transform: scale(1.15);
+}
+  .nav-item {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  /* 🔥 tombol tengah (LOGIN) */
+  .nav-item.center {
+    background: black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    transform: translateY(-10px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  }
+
+  /* biar konten gak ketutup */
+  body {
+    padding-bottom: 70px;
+  }
+}
+  /* HIDE DEFAULT */
+.nav-game {
+  display: none;
+}
+
+/* MOBILE ONLY */
+/* MOBILE NAV FINAL */
+@media (max-width: 768px) {
+
+  .nav-game {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 3px 0; /* 🔥 TIPIS BANGET */
+    background: linear-gradient(180deg, #1e90ff, #004aad);
+    border-top: 2px solid #00c6ff;
+    z-index: 999;
+  }
+
+  .nav-item {
+    text-align: center;
+  }
+
+  .nav-item img {
+    width: 26px; /* 🔥 WA & TELE tetap besar */
+    height: 26px;
+    margin-bottom: 2px;
+  }
+
+  .nav-item span {
+    font-size: 9px;
+  }
+
+  .nav-item.center {
+    padding: 4px 8px;
+    transform: translateY(-5px);
+    background: black;
+    border-radius: 8px;
+  }
+
+  body {
+    padding-bottom: 55px;
+  }
+}
+  /* ICON GIF */
+.nav-item img {
+  width: 50px;   /* 🔥 dari 22 → jadi kecil */
+  height: 50px;
+  display: block;
+  margin: 0 auto 2px;
+}
+
+/* TEXT */
+.nav-item span {
+  font-size: 10px;  /* 🔥 kecilin tulisan */
+}
+
+/* NAVBAR HEIGHT */
+.nav-game {
+  padding: 6px 0 !important; /* 🔥 lebih tipis */
+}
+
+/* LOGIN TENGAH */
+.nav-item.center {
+  padding: 6px 10px !important; /* 🔥 kecilin tombol */
+  transform: translateY(-6px);  /* biar tetap naik dikit */
+}
+  /* DESKTOP ONLY */
+@media (min-width: 769px) {
+@media (min-width: 769px) {
+
+  .wa-desktop {
+    display: block;
+    position: fixed;
+    bottom: 130px;
+    left: 30px;
+    z-index: 10001;
+  }
+
+  .tele-desktop {
+  display: block;
+  position: fixed;
+
+  bottom: 130px;        /* tinggi */
+  left: 50%;            /* 🔥 kunci center */
+  transform: translateX(-50%); /* 🔥 biar benar-benar tengah */
+
+  z-index: 10001;
+}
+
+  .wa-desktop img,
+  .tele-desktop img {
+    width: 60px;
+    transition: 0.3s;
+  }
+
+  .wa-desktop img:hover,
+  .tele-desktop img:hover {
+    transform: scale(1.15);
+  }
+}
 </style>
 </head>
 
 <body>
+<div class="nav-game">
+
+  <!-- WHATSAPP -->
+  <a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank" class="nav-item">
+    <img src="https://cliply.co/wp-content/uploads/2021/08/372108180_WHATSAPP_ICON_400.gif">
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- LOGIN -->
+  <a href="https://click-lynk.com/CLICKBET88_WL" target="_blank" class="nav-item center">
+    <span>LOGIN</span>
+  </a>
+
+  <!-- TELEGRAM -->
+  <a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank" class="nav-item">
+    <img src="https://patung288-bo.l88x.cfd/upload/tele.gif">
+    <span>Telegram</span>
+  </a>
+
+</div>
 
 <!-- 🔥 LOGO ATAS -->
 <div class="logo-top">
@@ -184,81 +451,18 @@ body::before {
 ">
     <button onclick="loadUser()">CHECK SEKARANG</button>
   </div>
-
-  <div class="container" id="app">
-    <div class="title">🔥 CHECK POINT RUNGKAD 🔥</div>
-
-    <div class="progress-bar">
-      <div class="progress" id="progress"></div>
-    </div>
-
-    <div class="item"><input type="checkbox"><label>Login akun berhasil</label></div>
-    <div class="item"><input type="checkbox"><label>Deposit sukses</label></div>
-    <div class="item"><input type="checkbox"><label>Main game minimal 10x spin</label></div>
-    <div class="item"><input type="checkbox"><label>Menang jackpot</label></div>
-    <div class="item"><input type="checkbox"><label>Withdraw berhasil</label></div>
   </div>
+<a href="https://direct.lc.chat/12319896" target="_blank" class="livechat-kanan">
+  <img src="https://cdn.files-text.com/us-south1/api/lc/main/12319896/0/ec/dc85ecafba48bd9326757ad0ebd19fa6.gif" alt="Live Chat">
+</a>
+  <!-- DESKTOP FLOAT -->
+<a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank" class="wa-desktop">
+  <img src="https://cliply.co/wp-content/uploads/2021/08/372108180_WHATSAPP_ICON_400.gif">
+</a>
 
-</div>
-
-<script>
-const sheetURL = "https://docs.google.com/spreadsheets/d/XXX/export?format=csv";
-
-const checkboxes = document.querySelectorAll("input[type=checkbox]");
-const progress = document.getElementById("progress");
-
-function updateProgress() {
-  let total = checkboxes.length;
-  let checked = 0;
-
-  checkboxes.forEach(cb => {
-    if (cb.checked) {
-      checked++;
-      cb.nextElementSibling.classList.add("done");
-    } else {
-      cb.nextElementSibling.classList.remove("done");
-    }
-  });
-
-  progress.style.width = (checked / total * 100) + "%";
-}
-
-function loadUser() {
-  const username = document.getElementById("username").value.toLowerCase();
-
-  if (!username) {
-    alert("Masukkan username dulu!");
-    return;
-  }
-
-  fetch(sheetURL)
-    .then(res => res.text())
-    .then(data => {
-      const rows = data.split("\n").slice(1);
-      let found = false;
-
-      rows.forEach(row => {
-        const cols = row.split(",");
-
-        if (cols[0].toLowerCase() === username) {
-          found = true;
-
-          checkboxes[0].checked = cols[1].trim() === "TRUE";
-          checkboxes[1].checked = cols[2].trim() === "TRUE";
-          checkboxes[2].checked = cols[3].trim() === "TRUE";
-          checkboxes[3].checked = cols[4].trim() === "TRUE";
-          checkboxes[4].checked = cols[5].trim() === "TRUE";
-
-          updateProgress();
-
-          document.getElementById("loginBox").style.display = "none";
-          document.getElementById("app").style.display = "block";
-        }
-      });
-
-      if (!found) alert("Username tidak ditemukan!");
-    });
-}
+<a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank" class="tele-desktop">
+  <img src="https://patung288-bo.l88x.cfd/upload/tele.gif">
+</a>
 </script>
 
 </body>
