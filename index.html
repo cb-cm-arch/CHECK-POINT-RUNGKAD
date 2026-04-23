@@ -211,7 +211,7 @@ async function loadUser() {
 
   document.getElementById("result").innerHTML = "🔄 Loading...";
 
-  const url = "https://script.google.com/macros/s/AKfycbwsBdn0YNlb1UAoM6u0vrhPZdgFt7yJ_yTNcmmt4y_HtU1Rw3zFo0E4u2g_xYDN4xFFbQ/exec" + input;
+  const url = "https://script.google.com/macros/s/AKfycbwsBdn0YNlb1UAoM6u0vrhPZdgFt7yJ_yTNcmmt4y_HtU1Rw3zFo0E4u2g_xYDN4xFFbQ/exec?username=" + input;
 
   try {
     const res = await fetch(url);
