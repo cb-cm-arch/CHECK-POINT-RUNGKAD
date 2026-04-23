@@ -356,19 +356,19 @@ body {
 
 <script>
 
-// 🔥 ANIMASI ANGKA NAIK
+// 🔥 ANIMASI ANGKA NAIK (SMOOTH & HALUS)
 function animateValue(id, start, end, duration) {
-  let range = end - start;
   let current = start;
-  let increment = end > start ? Math.ceil(range / 50) : -1;
-  let stepTime = Math.abs(Math.floor(duration / 50));
+  let range = end - start;
+  let increment = Math.ceil(range / 60);
+  let stepTime = Math.abs(Math.floor(duration / 60));
 
   let obj = document.getElementById(id);
 
   let timer = setInterval(function () {
     current += increment;
 
-    if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+    if (current >= end) {
       current = end;
       clearInterval(timer);
     }
@@ -389,6 +389,12 @@ async function loadUser() {
     return;
   }
 
+  // 🔥 efek klik tombol (halus & elegan)
+  buttonEl.style.transform = "scale(0.96)";
+  setTimeout(() => {
+    buttonEl.style.transform = "scale(1)";
+  }, 120);
+
   document.getElementById("result").innerHTML = "🔄 Loading...";
 
   const url = "https://script.google.com/macros/s/AKfycbxGttDyxDaIqzjYnVa30WxtPoCigubCKveDtj-lTei1aAJLRzIX07FSE1dSeq-WwYs8SQ/exec?username=" + input;
@@ -399,13 +405,15 @@ async function loadUser() {
 
     if (user && !user.error) {
 
-      // 🔥 HILANGKAN INPUT & BUTTON
+      // 🔥 hide input & tombol
       inputEl.style.display = "none";
       buttonEl.style.display = "none";
 
       document.getElementById("result").innerHTML = `
-        <h3 style="opacity:0.8;">Username</h3>
-        <h2 style="color:#00c6ff;">${user["Username"]}</h2>
+        <h3 style="opacity:0.7;">Username</h3>
+        <h2 style="color:#00c6ff;">
+          ${user["Username"]}
+        </h2>
 
         <h3 style="margin-top:10px;">Point Saat Ini</h3>
         <h1 id="point" class="glow-point">0</h1>
@@ -415,16 +423,16 @@ async function loadUser() {
         </button>
       `;
 
-      // 🔥 ANIMASI ANGKA
+      // 🔥 animasi angka (lebih smooth)
       setTimeout(() => {
-        animateValue("point", 0, parseInt(user["Sisa Point"]), 1200);
+        animateValue("point", 0, parseInt(user["Sisa Point"]), 1000);
       }, 200);
 
     } else {
       document.getElementById("result").innerHTML = `
         <p>
-          🙏 Mohon maaf, data point Anda belum tersedia.<br>
-          Silakan hubungi admin untuk informasi lebih lanjut.
+          Mohon maaf, data point Anda belum tersedia.<br>
+          Silakan hubungi admin untuk informasi lebih lanjut🙏.
         </p>
       `;
     }
@@ -446,6 +454,18 @@ function resetForm() {
   inputEl.value = "";
   document.getElementById("result").innerHTML = "";
 }
+
+
+// 🔥 ENTER = LANGSUNG CHECK
+document.addEventListener("DOMContentLoaded", function() {
+  const inputEl = document.getElementById("username");
+
+  inputEl.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      loadUser();
+    }
+  });
+});
 
 </script>
 
