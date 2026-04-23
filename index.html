@@ -201,8 +201,34 @@ body {
 </div>
 
 <script>
+
+// 🔥 ANIMASI ANGKA NAIK
+function animateValue(id, start, end, duration) {
+  let range = end - start;
+  let current = start;
+  let increment = end > start ? Math.ceil(range / 50) : -1;
+  let stepTime = Math.abs(Math.floor(duration / 50));
+
+  let obj = document.getElementById(id);
+
+  let timer = setInterval(function () {
+    current += increment;
+
+    if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+      current = end;
+      clearInterval(timer);
+    }
+
+    obj.innerText = current.toLocaleString();
+  }, stepTime);
+}
+
+
+// 🔥 LOAD USER
 async function loadUser() {
-  const input = document.getElementById("username").value.trim().toLowerCase();
+  const inputEl = document.getElementById("username");
+  const buttonEl = document.querySelector(".btn-premium");
+  const input = inputEl.value.trim().toLowerCase();
 
   if (!input) {
     document.getElementById("result").innerHTML = "⚠️ Masukkan username";
@@ -218,12 +244,28 @@ async function loadUser() {
     const user = await res.json();
 
     if (user && !user.error) {
+
+      // 🔥 HILANGKAN INPUT & BUTTON
+      inputEl.style.display = "none";
+      buttonEl.style.display = "none";
+
       document.getElementById("result").innerHTML = `
-        <h2>Point Saat Ini</h2>
-        <h1 style="font-size:50px;color:#00ffcc;">
-          ${user["Sisa Point"]}
-        </h1>
+        <h3 style="opacity:0.8;">Username</h3>
+        <h2 style="color:#00c6ff;">${user["Username"]}</h2>
+
+        <h3 style="margin-top:10px;">Point Saat Ini</h3>
+        <h1 id="point" class="glow-point">0</h1>
+
+        <button onclick="resetForm()" class="btn-premium" style="margin-top:20px;">
+          CEK LAGI
+        </button>
       `;
+
+      // 🔥 ANIMASI ANGKA
+      setTimeout(() => {
+        animateValue("point", 0, parseInt(user["Sisa Point"]), 1200);
+      }, 200);
+
     } else {
       document.getElementById("result").innerHTML = `
         <p>
@@ -237,6 +279,20 @@ async function loadUser() {
     document.getElementById("result").innerHTML = "⚠️ Error ambil data";
   }
 }
+
+
+// 🔥 RESET (CEK LAGI)
+function resetForm() {
+  const inputEl = document.getElementById("username");
+  const buttonEl = document.querySelector(".btn-premium");
+
+  inputEl.style.display = "block";
+  buttonEl.style.display = "inline-block";
+
+  inputEl.value = "";
+  document.getElementById("result").innerHTML = "";
+}
+
 </script>
 
 </body>
