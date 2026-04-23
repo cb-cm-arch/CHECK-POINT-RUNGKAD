@@ -6,33 +6,16 @@
 <title>CHECK POINT RUNGKAD</title>
 
 <style>
+
+/* BODY */
 body {
   margin: 0;
   font-family: Arial;
   color: white;
-
-  background: url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-
-  overflow: hidden; /* 🔥 MATIIN SCROLL */
+  background: url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg") no-repeat center/cover;
+  overflow: hidden;
 }
-  @media (min-width: 768px) {
 
-  .wrapper {
-    padding-top: 120px;
-  }
-
-  .gif-floating {
-    top: 28%;
-  }
-
-  .login-box {
-    max-width: 380px;
-    padding: 22px;
-  }
-
-}
 /* CENTER */
 .wrapper {
   height: 100vh;
@@ -40,165 +23,97 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* LOGIN BOX */
+
+/* BOX */
 .login-box {
-  position: relative;
-  z-index: 9999;
+  width: 90%;
+  max-width: 320px;
+  padding: 25px;
+  border-radius: 20px;
 
-  width: 85%;          /* dari 90% → lebih kecil */
-  max-width: 350px;    /* dari 400px → lebih slim */
-  padding: 18px;       /* dari 25px → lebih tipis */
+  background: rgba(0,0,40,0.8);
+  backdrop-filter: blur(15px);
 
-  border-radius: 15px;
+  border: 1px solid rgba(0,255,255,0.3);
 
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 25px rgba(0,255,255,0.2),
+    inset 0 0 20px rgba(0,255,255,0.1);
 
-  text-align: center;
-}
-
-input {
-  width: 100%;        /* full biar center */
-  max-width: 280px;   /* biar gak kepanjangan */
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  margin: 0 auto 15px auto; /* 🔥 center */
-  display: block;
-}
-
-  .login-box {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-/* BUTTON */
-button {
-  padding: 12px 25px;
+
+/* FORM */
+.form-group {
+  width: 100%;
+  max-width: 240px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 12px; /* 🔥 tambah jarak ke bawah */
+  font-size: 13px;
+}
+
+/* INPUT */
+.form-group {
+  width: 100%;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box; /* 🔥 ini kunci */
+  padding: 10px;
+
   border-radius: 10px;
   border: none;
-  background: linear-gradient(90deg,#1e90ff,#00c6ff);
+
+ text-align: left; /* 🔥 geser ke kiri */
+}
+/* BUTTON */
+.btn-premium {
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+
+  background: linear-gradient(90deg,#00c6ff,#0072ff);
   color: white;
   font-weight: bold;
   cursor: pointer;
+
+  box-shadow: 0 0 15px rgba(0,150,255,0.7);
 }
 
-button:hover {
+.btn-premium:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0,200,255,1);
 }
 
 /* RESULT */
 #result {
-  text-align: center;
   margin-top: 20px;
+  text-align: center;
 }
 
-/* GIF (TIDAK GANGGU KLIK) */
+/* GIF */
 .gif-floating {
   position: absolute;
-  top: 30%;
+  top: 18%;
   left: 50%;
   transform: translate(-50%,-50%);
+
+  z-index: 9999; /* 🔥 selalu di atas */
   pointer-events: none;
 }
-
-/* NAV (TIDAK NUTUP KLIK) */
-.nav-game {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  padding: 8px;
-  background: linear-gradient(180deg,#1e90ff,#004aad);
-  z-index: 1000;
-
-  pointer-events: none;
+  .login-box {
+  margin-top: 60px; /* 🔥 kasih space ke bawah */
 }
 
-.nav-game a {
-  color: white;
-  text-decoration: none;
-  pointer-events: auto;
-  font-size: 12px;
-}
-
-/* BIAR KONTEN GA KEKETUTUP NAV */
-body {
-  padding-bottom: 70px;
-}
-  .nav-game {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  padding: 10px 0;
-
-  background: linear-gradient(180deg,#1e90ff,#004aad);
-  z-index: 1000;
-
-  pointer-events: none;
-}
-
-/* ITEM */
-.nav-game a {
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  font-size: 12px;
-  pointer-events: auto;
-}
-
-/* ICON GIF */
-.nav-icon {
-  width: 65px;
-  height: 65px;
-  object-fit: contain;
-  display: block;
-  margin: auto;
-}
-/* HOVER EFFECT (BIAR HIDUP) */
-.nav-game a:hover {
-  transform: scale(1.1);
-  transition: 0.2s;
-}
-  .nav-game {
-  box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
-}
-
-.nav-icon {
-  filter: drop-shadow(0 0 5px rgba(0,255,255,0.7));
-}
-  .gif-center {
-  width: 320px;   /* bisa naik lagi kalau mau */
-  max-width: 90%;
-  height: auto;
-}
-  .gif-center {
-  width: 350px;
-  max-width: 90%;
-  height: auto;
-
-  filter: drop-shadow(0 0 15px rgba(0,255,255,0.6));
-  animation: floatUpDown 3s ease-in-out infinite;
-}
-
-@keyframes floatUpDown {
-  0%,100% { transform: translate(-50%,-50%) translateY(0); }
-  50% { transform: translate(-50%,-50%) translateY(-10px); }
-}
-  .nav-login {
-  width: 90px;
-  height: 90px;
-  margin-top: -20px; /* naik dikit biar gak kepotong */
-}
-/* NAVBAR MEWAH */
+/* NAVBAR */
 .nav-game {
   position: fixed;
   bottom: 15px;
@@ -212,58 +127,32 @@ body {
   justify-content: space-around;
   align-items: center;
 
-  padding: 12px 10px;
-
+  padding: 12px;
   border-radius: 20px;
 
-  background: rgba(0, 60, 120, 0.6);
+  background: rgba(0,60,120,0.6);
   backdrop-filter: blur(15px);
 
   border: 1px solid rgba(0,255,255,0.3);
 
-  box-shadow: 
-    0 10px 30px rgba(0,0,0,0.6),
-    inset 0 0 15px rgba(0,255,255,0.2);
-
-  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* ICON */
+/* NAV ICON */
 .nav-icon {
-  width: 60px;
-  height: 60px;
-
+  width: 55px;
+  height: 55px;
   filter: drop-shadow(0 0 10px rgba(0,255,255,0.8));
-  transition: 0.3s;
 }
 
-/* LOGIN (TOMBOL UTAMA) */
-.nav-login {
-  width: 90px;
-  height: 90px;
-
-  transform: translateY(-20px);
-
-  filter: drop-shadow(0 0 20px rgba(255,255,0,0.8));
-}
-
-/* TEXT */
+/* NAV TEXT */
 .nav-game a {
   text-align: center;
-  text-decoration: none;
   color: white;
+  text-decoration: none;
   font-size: 11px;
 }
 
-.nav-game a div {
-  margin-top: 5px;
-  opacity: 0.9;
-}
-
-/* HOVER */
-.nav-game a:hover .nav-icon {
-  transform: scale(1.2) translateY(-5px);
-}
 </style>
 </head>
 
@@ -278,9 +167,9 @@ body {
   </a>
 
   <a href="https://direct.lc.chat/12319896" target="_blank">
-  <img src="https://media.tenor.com/S65c088OseQAAAAj/livechat.gif">
-  <div>LiveChat</div>
-</a>
+    <img src="https://media.tenor.com/S65c088OseQAAAAj/livechat.gif" class="nav-icon">
+    <div>Live Chat</div>
+  </a>
 
   <a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank">
     <img src="https://patung288-bo.l88x.cfd/upload/tele.gif" class="nav-icon">
@@ -289,7 +178,7 @@ body {
 
 </div>
 
-<!-- CENTER -->
+<!-- CONTENT -->
 <div class="wrapper">
 
   <div class="gif-floating">
@@ -297,11 +186,16 @@ body {
   </div>
 
   <div class="login-box">
-    <input type="text" id="username" placeholder="🔍 CHECK POINT">
-    <br>
-    <button onclick="loadUser()">CHECK SEKARANG</button>
+
+    <div class="form-group">
+      <label>CHECK POINT</label>
+      <input type="text" id="username" placeholder="Enter User ID">
+    </div>
+
+    <button class="btn-premium" onclick="loadUser()">CHECK SEKARANG</button>
 
     <div id="result"></div>
+
   </div>
 
 </div>
@@ -324,20 +218,20 @@ async function loadUser() {
     const user = await res.json();
 
     if (user && !user.error) {
-  document.getElementById("result").innerHTML = `
-    <h2>👑 Berikuk Point Anti Rungkad saat ini:</h2>
-    <h1 style="font-size:50px;color:#00ffcc;">
-      ${user["Sisa Point"]}
-    </h1>
-  `;
-} else {
-  document.getElementById("result").innerHTML = `
-    <p style="font-size:14px;opacity:0.9;">
-      🙏 Mohon maaf, saat ini data point Belum tersedia.
-      <br>Silakan hubungi admin untuk informasi lebih lanjut.
-    </p>
-  `;
-}
+      document.getElementById("result").innerHTML = `
+        <h2>Point Saat Ini</h2>
+        <h1 style="font-size:50px;color:#00ffcc;">
+          ${user["Sisa Point"]}
+        </h1>
+      `;
+    } else {
+      document.getElementById("result").innerHTML = `
+        <p>
+          🙏 Mohon maaf, data point Anda belum tersedia.<br>
+          Silakan hubungi admin untuk informasi lebih lanjut.
+        </p>
+      `;
+    }
 
   } catch (e) {
     document.getElementById("result").innerHTML = "⚠️ Error ambil data";
