@@ -57,15 +57,21 @@ body {
   text-align: center;
 }
 
-/* INPUT */
 input {
-  width: 80%;
+  width: 100%;        /* full biar center */
+  max-width: 280px;   /* biar gak kepanjangan */
   padding: 12px;
   border-radius: 10px;
   border: none;
-  margin-bottom: 15px;
+  margin: 0 auto 15px auto; /* 🔥 center */
+  display: block;
 }
 
+  .login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /* BUTTON */
 button {
   padding: 12px 25px;
@@ -271,9 +277,9 @@ body {
     <div>WhatsApp</div>
   </a>
 
-  <a href="https://click-lynk.com/CLICKBET88_WL" target="_blank">
-  <img src="https://chiropracticdiplomatic.com/contact/image/gifdaftar.gif" class="nav-icon nav-login">
-  <div>Login</div>
+  <a href="https://direct.lc.chat/12319896" target="_blank">
+  <img src="https://media.tenor.com/S65c088OseQAAAAj/livechat.gif">
+  <div>LiveChat</div>
 </a>
 
   <a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank">
@@ -318,15 +324,20 @@ async function loadUser() {
     const user = await res.json();
 
     if (user && !user.error) {
-      document.getElementById("result").innerHTML = `
-        <h2>💰 SISA POINT</h2>
-        <h1 style="font-size:50px;color:#00ffcc;">
-          ${user["Sisa Point"]}
-        </h1>
-      `;
-    } else {
-      document.getElementById("result").innerHTML = "❌ Data tidak ditemukan";
-    }
+  document.getElementById("result").innerHTML = `
+    <h2>👑 Berikuk Point Anti Rungkad saat ini:</h2>
+    <h1 style="font-size:50px;color:#00ffcc;">
+      ${user["Sisa Point"]}
+    </h1>
+  `;
+} else {
+  document.getElementById("result").innerHTML = `
+    <p style="font-size:14px;opacity:0.9;">
+      🙏 Mohon maaf, saat ini data point Belum tersedia.
+      <br>Silakan hubungi admin untuk informasi lebih lanjut.
+    </p>
+  `;
+}
 
   } catch (e) {
     document.getElementById("result").innerHTML = "⚠️ Error ambil data";
