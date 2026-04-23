@@ -6,48 +6,16 @@
 <title>CHECK POINT RUNGKAD</title>
 
 <style>
-/* 🔥 HIDE DEFAULT (SEMUA DEVICE) */
-.wa-desktop,
-.tele-desktop {
-  display: none;
-}
-  body {
+body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   color: white;
-
-  background: url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
+  background: url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg") no-repeat center/cover;
 }
 
-/* overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-  z-index: -1;
-}
-
-/* 🔥 LOGO ATAS (FIXED) */
-.logo-top {
-  position: fixed;
-  top: 20px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 10;
-}
-
-.logo-top img {
-  width: 500px;   /* 🔥 BESARIN */
-  max-width: 95%; /* biar tetap aman di mobile */
-}
-
-/* CENTER LOGIN */
+/* CENTER */
 .wrapper {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,414 +23,146 @@ body::before {
 
 /* LOGIN BOX */
 .login-box {
-  width: 100%;
+  position: relative;
+  z-index: 9999;
+
+  width: 90%;
   max-width: 400px;
-  padding: 30px 24px;
-  border-radius: 16px;
-  text-align: center;
+  padding: 25px;
+  border-radius: 15px;
 
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(10px);
-  background: rgba(0,0,0,0.6);
 
-  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+  text-align: center;
 }
 
-.login-box h2 {
+/* INPUT */
+input {
+  width: 80%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
   margin-bottom: 15px;
-  font-size: 16px; /* 🔥 kecilin di sini */
 }
 
-.login-box input {
-  width: 70%;
-  padding: 10px;
-  border-radius: 8px;
+/* BUTTON */
+button {
+  padding: 12px 25px;
+  border-radius: 10px;
   border: none;
-  margin-bottom: 12px;
-}
-
-.login-box button {
-  width: 30%;
-  padding: 10px;
-  background: linear-gradient(90deg, #1e90ff, #00c6ff);
-  border: none;
-  border-radius: 8px;
+  background: linear-gradient(90deg,#1e90ff,#00c6ff);
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
-.login-box button:hover {
+button:hover {
   transform: scale(1.05);
 }
 
-/* CHECKLIST */
-.container {
-  display: none;
-  width: 100%;
-  max-width: 520px;
-  padding: 25px;
-  border-radius: 16px;
-
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,0.7);
-
-  box-shadow: 0 0 30px rgba(0,0,0,0.8);
-}
-
-.title {
+/* RESULT */
+#result {
   text-align: center;
-  margin-bottom: 15px;
+  margin-top: 20px;
 }
 
-/* PROGRESS */
-.progress-bar {
-  width: 100%;
-  height: 10px;
-  background: #1e293b;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-.progress {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #22c55e, #4ade80);
-}
-
-/* ITEM */
-.item {
-  display: flex;
-  align-items: center;
-  background: rgba(2,6,23,0.9);
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.done {
-  text-decoration: line-through;
-  color: #22c55e;
-}
-/* WRAPPER HARUS RELATIVE */
-.wrapper {
-  position: relative;
-}
-
-/* GIF CENTER */
+/* GIF (TIDAK GANGGU KLIK) */
 .gif-floating {
   position: absolute;
-  top: 38%; /* posisi vertikal (atur di sini) */
+  top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
 }
 
-/* GIF RESPONSIVE */
-.gif-floating img {
-  width: clamp(180px, 30vw, 320px);
-  height: auto;
-}
- .livechat-kanan {
-  position: fixed;
-  right: 15px;   /* tetap kanan */
-  bottom: 120px; /* 🔥 naik ke atas */
-  z-index: 10000;
-}
-
-.livechat-kanan img {
-  width: 140px;
-  border-radius: 10px;
-}
-.livechat-kanan img {
-  width: 180px;
-  max-width: 35vw;
-  border-radius: 10px;
-}
-@media (max-width: 768px) {
-  .livechat-kanan {
-    right: 10px;
-    bottom: 130px !important; /* 🔥 NAIK KE ATAS */
-  }
-
-  .livechat-kanan img {
-    width: 130px;
-  }
-}
-  /* DEFAULT HIDE */
-.nav-desktop {
-  display: none !important;
-}
-
-/* MOBILE ONLY */
-@media (max-width: 768px) {
-
-  .nav-desktop {
-    display: flex !important;
-
-    position: fixed;
-    bottom: 0;   /* 🔥 pindah ke bawah */
-    left: 0;
-    right: 0;
-
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 10px 15px;
-    background: rgba(0,0,0,0.8);
-    z-index: 999;
-  }
-
-  .nav-left, .nav-center, .nav-right {
-    flex: 1;
-  }
-
-  .nav-left { text-align: left; }
-  .nav-center { text-align: center; }
-  .nav-right { text-align: right; }
-
-  .nav-desktop a {
-    color: white;
-    font-size: 12px;
-    text-decoration: none;
-  }
-
-  /* 🔥 BIAR KONTEN GAK KETUTUP */
-  body {
-    padding-bottom: 60px;
-  }
-}
-  /* HIDE DEFAULT */
+/* NAV (TIDAK NUTUP KLIK) */
 .nav-game {
-  display: none;
-}
-
-/* MOBILE ONLY */
-@media (max-width: 768px) {
-
-.nav-game {
-  display: flex;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-
+  display: flex;
   justify-content: space-around;
-  align-items: center;
+  padding: 8px;
+  background: linear-gradient(180deg,#1e90ff,#004aad);
+  z-index: 1000;
 
-  padding: 6px 0;
-
-  /* 💎 GLASS + GRADIENT */
-  background: linear-gradient(135deg, rgba(0, 140, 255, 0.9), rgba(0, 50, 120, 0.95));
-  backdrop-filter: blur(12px);
-
-  /* ✨ GLOW ATAS */
-  border-top: 1px solid rgba(0,255,255,0.6);
-  box-shadow: 0 -5px 25px rgba(0, 200, 255, 0.6);
-
-  z-index: 999;
-}
-  .nav-item img {
-  width: 28px;
-  height: 28px;
-
-  /* ✨ glow neon */
-  filter: drop-shadow(0 0 8px rgba(0,255,255,0.9));
-
-  transition: 0.3s;
+  pointer-events: none;
 }
 
-/* 🔥 efek hover */
-.nav-item img:hover {
-  transform: scale(1.15);
-}
-  .nav-item {
-    color: white;
-    text-align: center;
-    font-size: 12px;
-    text-decoration: none;
-  }
-
-  /* 🔥 tombol tengah (LOGIN) */
-  .nav-item.center {
-    background: black;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-weight: bold;
-    transform: translateY(-10px);
-    box-shadow: 0 0 10px rgba(0,0,0,0.8);
-  }
-
-  /* biar konten gak ketutup */
-  body {
-    padding-bottom: 70px;
-  }
-}
-  /* HIDE DEFAULT */
-.nav-game {
-  display: none;
+.nav-game a {
+  color: white;
+  text-decoration: none;
+  pointer-events: auto;
+  font-size: 12px;
 }
 
-/* MOBILE ONLY */
-/* MOBILE NAV FINAL */
-@media (max-width: 768px) {
-
-  .nav-game {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    justify-content: space-around;
-    align-items: center;
-
-    padding: 3px 0; /* 🔥 TIPIS BANGET */
-    background: linear-gradient(180deg, #1e90ff, #004aad);
-    border-top: 2px solid #00c6ff;
-    z-index: 999;
-  }
-
-  .nav-item {
-    text-align: center;
-  }
-
-  .nav-item img {
-    width: 26px; /* 🔥 WA & TELE tetap besar */
-    height: 26px;
-    margin-bottom: 2px;
-  }
-
-  .nav-item span {
-    font-size: 9px;
-  }
-
-  .nav-item.center {
-    padding: 4px 8px;
-    transform: translateY(-5px);
-    background: black;
-    border-radius: 8px;
-  }
-
-  body {
-    padding-bottom: 55px;
-  }
-}
-  /* ICON GIF */
-.nav-item img {
-  width: 50px;   /* 🔥 dari 22 → jadi kecil */
-  height: 50px;
-  display: block;
-  margin: 0 auto 2px;
-}
-
-/* TEXT */
-.nav-item span {
-  font-size: 10px;  /* 🔥 kecilin tulisan */
-}
-
-/* NAVBAR HEIGHT */
-.nav-game {
-  padding: 6px 0 !important; /* 🔥 lebih tipis */
-}
-
-/* LOGIN TENGAH */
-.nav-item.center {
-  padding: 6px 10px !important; /* 🔥 kecilin tombol */
-  transform: translateY(-6px);  /* biar tetap naik dikit */
-}
-  /* DESKTOP ONLY */
-@media (min-width: 769px) {
-@media (min-width: 769px) {
-
-  .wa-desktop {
-    display: block;
-    position: fixed;
-    bottom: 130px;
-    left: 30px;
-    z-index: 10001;
-  }
-
-  .tele-desktop {
-  display: block;
-  position: fixed;
-
-  bottom: 130px;        /* tinggi */
-  left: 50%;            /* 🔥 kunci center */
-  transform: translateX(-50%); /* 🔥 biar benar-benar tengah */
-
-  z-index: 10001;
-}
-
-  .wa-desktop img,
-  .tele-desktop img {
-    width: 60px;
-    transition: 0.3s;
-  }
-
-  .wa-desktop img:hover,
-  .tele-desktop img:hover {
-    transform: scale(1.15);
-  }
+/* BIAR KONTEN GA KEKETUTUP NAV */
+body {
+  padding-bottom: 70px;
 }
 </style>
 </head>
 
 <body>
+
+<!-- NAV -->
 <div class="nav-game">
-
-  <!-- WHATSAPP -->
-  <a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank" class="nav-item">
-    <img src="https://cliply.co/wp-content/uploads/2021/08/372108180_WHATSAPP_ICON_400.gif">
-    <span>WhatsApp</span>
-  </a>
-
-  <!-- LOGIN -->
-  <a href="https://click-lynk.com/CLICKBET88_WL" target="_blank" class="nav-item center">
-    <span>LOGIN</span>
-  </a>
-
-  <!-- TELEGRAM -->
-  <a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank" class="nav-item">
-    <img src="https://patung288-bo.l88x.cfd/upload/tele.gif">
-    <span>Telegram</span>
-  </a>
-
-</div>
-
-<!-- 🔥 LOGO ATAS -->
-<div class="logo-top">
-  <img src="https://i.postimg.cc/Znrff8n4/POINT-ANTI-RUNGKAD-4-22-2026.png">
+  <a href="#">WhatsApp</a>
+  <a href="#">Login</a>
+  <a href="#">Telegram</a>
 </div>
 
 <!-- CENTER -->
 <div class="wrapper">
 
-<div class="gif-floating">
-  <img src="https://clickbet88sedekahrejeki05.xyz/storage/webpersonalize/d54f5304-03b3-49f7-b283-e6fe0c595ca7.gif">
+  <div class="gif-floating">
+    <img src="https://clickbet88sedekahrejeki05.xyz/storage/webpersonalize/d54f5304-03b3-49f7-b283-e6fe0c595ca7.gif" width="200">
+  </div>
+
+  <div class="login-box">
+    <input type="text" id="username" placeholder="🔍 CHECK POINT">
+    <br>
+    <button onclick="loadUser()">CHECK SEKARANG</button>
+
+    <div id="result"></div>
+  </div>
+
 </div>
 
-  <div class="login-box" id="loginBox">
-    <h2></h2>
-    <input type="text" id="username" placeholder="🔍 CHECK POINT
-">
-    <button onclick="loadUser()">CHECK SEKARANG</button>
-  </div>
-  </div>
-<a href="https://direct.lc.chat/12319896" target="_blank" class="livechat-kanan">
-  <img src="https://cdn.files-text.com/us-south1/api/lc/main/12319896/0/ec/dc85ecafba48bd9326757ad0ebd19fa6.gif" alt="Live Chat">
-</a>
-  <!-- DESKTOP FLOAT -->
-<a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank" class="wa-desktop">
-  <img src="https://cliply.co/wp-content/uploads/2021/08/372108180_WHATSAPP_ICON_400.gif">
-</a>
+<script>
+async function loadUser() {
+  const input = document.getElementById("username").value.trim();
 
-<a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank" class="tele-desktop">
-  <img src="https://patung288-bo.l88x.cfd/upload/tele.gif">
-</a>
+  if (!input) {
+    document.getElementById("result").innerHTML = "⚠️ Masukkan username";
+    return;
+  }
+
+  document.getElementById("result").innerHTML = "🔄 Loading...";
+
+  const url = "https://script.google.com/macros/s/AKfycbz_skhgYBiBV4CjYnGZ75n1sQY2tD2yuGpu0s01VsEw2D_4XzvgrSPdtCZnX0kPg0rD/exec?username=" + input;
+
+  try {
+    const res = await fetch(url);
+    const user = await res.json();
+
+    if (user && !user.error) {
+      document.getElementById("result").innerHTML = `
+        <h2>💰 SISA POINT</h2>
+        <h1 style="font-size:50px;color:#00ffcc;">
+          ${user["Sisa Point"]}
+        </h1>
+      `;
+    } else {
+      document.getElementById("result").innerHTML = "❌ Data tidak ditemukan";
+    }
+
+  } catch (e) {
+    document.getElementById("result").innerHTML = "⚠️ Error ambil data";
+  }
+}
 </script>
 
 </body>
