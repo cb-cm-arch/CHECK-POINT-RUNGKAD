@@ -102,10 +102,10 @@ body {
 /* GIF */
 .gif-floating {
   position: absolute;
-  top: 18%;
+  top: 45%; /* 🔥 TURUNKAN KE TENGAH */
   left: 50%;
   transform: translate(-50%,-50%);
-
+}
   z-index: 9999; /* 🔥 selalu di atas */
   pointer-events: none;
 }
@@ -153,6 +153,47 @@ body {
   font-size: 11px;
 }
 
+  .promo-banner {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.promo-banner img {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 15px;
+
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.4),
+    0 0 40px rgba(0,255,255,0.2);
+
+  animation: glowBanner 2s infinite alternate;
+}
+
+@keyframes glowBanner {
+  from {
+    box-shadow: 0 0 10px rgba(0,255,255,0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(0,255,255,0.8);
+  }
+}
+  .gif-top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.gif-top img {
+  width: 120px;
+  animation: none;      /* ❌ matikan animasi */
+  filter: none;         /* ❌ hilangkan glow */
+}
+  
 </style>
 </head>
 
@@ -181,16 +222,21 @@ body {
 <!-- CONTENT -->
 <div class="wrapper">
 
-  <div class="gif-floating">
-    <img src="https://clickbet88sedekahrejeki05.xyz/storage/webpersonalize/d54f5304-03b3-49f7-b283-e6fe0c595ca7.gif" width="200">
+  <div class="promo-banner">
+  <img src="https://clickbet88sedekahrejeki05.xyz/storage/promotionbanner/0a94d363-2393-4080-af8f-1e293ecd8d13.jpeg">
+</div>
+
+<div class="login-box">
+
+  <!-- 🔥 GIF DI ATAS -->
+  <div class="gif-top">
+    <img src="https://clickbet88sedekahrejeki05.xyz/storage/webpersonalize/d54f5304-03b3-49f7-b283-e6fe0c595ca7.gif">
   </div>
 
-  <div class="login-box">
-
-    <div class="form-group">
-      <label>CHECK POINT</label>
-      <input type="text" id="username" placeholder="Enter User ID">
-    </div>
+  <div class="form-group">
+    <label>CHECK POINT</label>
+    <input type="text" id="username" placeholder="Enter User ID">
+  </div>
 
     <button class="btn-premium" onclick="loadUser()">CHECK SEKARANG</button>
 
