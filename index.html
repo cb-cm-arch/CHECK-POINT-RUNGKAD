@@ -590,7 +590,7 @@ async function loadUser() {
 
   document.getElementById("result").innerHTML = "🔄 Loading...";
 
-  const url = "https://script.google.com/macros/s/AKfycbxJpbfU_BLnCgohmJffY_RsHvg0R0pgFnYWSrpiUdsOZhsuAn9SrVtZlbwGGKI_8cCX/exec" + input;
+  const url = "https://script.google.com/macros/s/AKfycbzQTI2_i8WJqvVQLZY20XEu6BHIERcJoks944Jfe_7re4MhiH83CKAIzph_eQow3Q/exec?username=" + encodeURIComponent(input);
 
   try {
     const res = await fetch(url);
