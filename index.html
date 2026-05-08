@@ -605,7 +605,7 @@ async function loadUser() {
    document.getElementById("result").innerHTML = `
   <h3 style="opacity:0.7;">Username</h3>
   <h2 style="color:#00c6ff;">
-    ${user["Username"]}
+    ${user.username}
   </h2>
 
   <h3 style="margin-top:10px;">Point Saat Ini</h3>
@@ -615,6 +615,10 @@ async function loadUser() {
     CEK LAGI
   </button>
 `;
+
+setTimeout(() => {
+  animateValue("point", 0, parseInt(user.point), 1000);
+}, 200);
 
       // 🔥 animasi angka (lebih smooth)
       setTimeout(() => {
