@@ -590,59 +590,50 @@ async function loadUser() {
 
   document.getElementById("result").innerHTML = "🔄 Loading...";
 
-  const url = "https://script.google.com/macros/s/AKfycbyurREqTSTAAKUcE8-BJcqGXoZaPgT7WjB4kqE1TJXEyOEYFTWBrSdFpksKXFMSSKFe/exec?username="
+  const url =
+  "https://script.google.com/macros/s/AKfycbyurREqTSTAAKUcE8-BJcqGXoZaPgT7WjB4kqE1TJXEyOEYFTWBrSdFpksKXFMSSKFe/exec?username="
+  + encodeURIComponent(input);
 
-  try {
-    const res = await fetch(url);
-    const user = await res.json();
+try {
+  const res = await fetch(url);
+  const user = await res.json();
 
-    if (user && !user.error) {
+  if (user && !user.error) {
 
-      // 🔥 hide input & tombol
-      inputEl.style.display = "none";
-      buttonEl.style.display = "none";
+    inputEl.style.display = "none";
+    buttonEl.style.display = "none";
 
-  document.getElementById("result").innerHTML = `
-  <h3 style="opacity:0.7;">Username</h3>
-  <h2 style="color:#00c6ff;">
-    ${user.username}
-  </h2>
+    document.getElementById("result").innerHTML = `
+      <h3 style="opacity:0.7;">Username</h3>
+      <h2 style="color:#00c6ff;">
+        ${user.username}
+      </h2>
 
-  <h3 style="margin-top:10px;">Point Saat Ini</h3>
-  <h1 id="point" class="glow-point">0</h1>
+      <h3 style="margin-top:10px;">Point Saat Ini</h3>
+      <h1 id="point" class="glow-point">0</h1>
 
-  <button onclick="resetForm()" class="btn-premium" style="margin-top:20px;">
-    CEK LAGI
-  </button>
-`;
+      <button onclick="resetForm()" class="btn-premium" style="margin-top:20px;">
+        CEK LAGI
+      </button>
+    `;
 
-setTimeout(() => {
-  animateValue("point", 0, parseInt(user.point), 1000);
-}, 200);
+    setTimeout(() => {
+      animateValue("point", 0, parseInt(user.point), 1000);
+    }, 200);
 
-setTimeout(() => {
-  animateValue("point", 0, parseInt(user.point), 1000);
-}, 200);
+  } else {
 
-      // 🔥 animasi angka (lebih smooth)
-      setTimeout(() => {
-        animateValue("point", 0, parseInt(user["Sisa Point"]), 1000);
-      }, 200);
-
-    } else {
-      document.getElementById("result").innerHTML = `
-        <div class="fancy-text">
-  Mohon maaf kak, <span>data point</span> Kakak belum tersedia.<br>
-  Silakan hubungi <span>admin</span> untuk informasi lebih lanjut 🙏
-</div>
-      `;
-    }
-
-  } catch (e) {
-    document.getElementById("result").innerHTML = "⚠️ Error ambil data";
+    document.getElementById("result").innerHTML = `
+      <div class="fancy-text">
+        Mohon maaf kak, data point Kakak belum tersedia.<br>
+        Silakan hubungi admin untuk informasi lebih lanjut 🙏
+      </div>
+    `;
   }
-}
 
+} catch (e) {
+  document.getElementById("result").innerHTML = "⚠️ Error ambil data";
+}
 
 // 🔥 RESET (CEK LAGI)
 function resetForm() {
