@@ -602,19 +602,19 @@ async function loadUser() {
       inputEl.style.display = "none";
       buttonEl.style.display = "none";
 
-      document.getElementById("result").innerHTML = `
-        <h3 style="opacity:0.7;">Username</h3>
-        <h2 style="color:#00c6ff;">
-          ${user["Username"]}
-        </h2>
+     document.getElementById("result").innerHTML = `
+  <h3 style="opacity:0.7;">Username</h3>
+  <h2 style="color:#00c6ff;">
+    ${user.username}
+  </h2>
 
-        <h3 style="margin-top:10px;">Point Saat Ini</h3>
-        <h1 id="point" class="glow-point">0</h1>
+  <h3 style="margin-top:10px;">Point Saat Ini</h3>
+  <h1 id="point" class="glow-point">0</h1>
 
-        <button onclick="resetForm()" class="btn-premium" style="margin-top:20px;">
-          CEK LAGI
-        </button>
-      `;
+  <button onclick="resetForm()" class="btn-premium" style="margin-top:20px;">
+    CEK LAGI
+  </button>
+`;
 
       // 🔥 animasi angka (lebih smooth)
       setTimeout(() => {
