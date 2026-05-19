@@ -554,8 +554,12 @@ function animateValue(id, start, end, duration) {
 
   let current = start;
   let range = end - start;
+
   let increment = Math.ceil(range / 60);
-  let stepTime = Math.abs(Math.floor(duration / 60));
+
+  let stepTime = Math.abs(
+    Math.floor(duration / 60)
+  );
 
   let obj = document.getElementById(id);
 
@@ -564,11 +568,14 @@ function animateValue(id, start, end, duration) {
     current += increment;
 
     if (current >= end) {
+
       current = end;
+
       clearInterval(timer);
     }
 
-    obj.innerText = current.toLocaleString();
+    obj.innerText =
+      current.toLocaleString();
 
   }, stepTime);
 }
@@ -577,10 +584,14 @@ function animateValue(id, start, end, duration) {
 // 🔥 LOAD USER
 async function loadUser() {
 
-  const inputEl = document.getElementById("username");
-  const buttonEl = document.querySelector(".btn-premium");
+  const inputEl =
+    document.getElementById("username");
 
-  const input = inputEl.value.trim().toLowerCase();
+  const buttonEl =
+    document.querySelector(".btn-premium");
+
+  const input =
+    inputEl.value.trim().toLowerCase();
 
   if (!input) {
 
@@ -593,22 +604,30 @@ async function loadUser() {
   document.getElementById("result").innerHTML =
     "🔄 Loading...";
 
+
   const url =
-    "https://script.google.com/macros/s/AKfycbw0vAOD1yy1jz4V4gjL_LXP4L05-Wkr_ZAj6rfw0_pzENqLdk5vtio7dn3p8uLEt9rL/exec?username="
+    "https://script.google.com/macros/s/AKfycbw5N0pgbS3PdUa8hueydLEnASXIQlTZI2m_oshR9SE6hYfxGyKiFV8KEdTKOGaiS0rU/exec?username="
     + encodeURIComponent(input);
 
   try {
 
     const res = await fetch(url);
+
     const user = await res.json();
 
-    if (user && !user.error) {
+    console.log(user);
+
+    if (user.username) {
 
       inputEl.style.display = "none";
+
       buttonEl.style.display = "none";
 
       document.getElementById("result").innerHTML = `
-        <h3 style="opacity:0.7;">Username</h3>
+
+        <h3 style="opacity:0.7;">
+          Username
+        </h3>
 
         <h2 style="color:#00c6ff;">
           ${user.username}
@@ -618,11 +637,18 @@ async function loadUser() {
           Sisa Point
         </h3>
 
-        <h1 id="point">0</h1>
+        <h1 id="point">
+          0
+        </h1>
 
-        <button onclick="resetForm()" class="btn-premium" style="margin-top:20px;">
+        <button
+          onclick="resetForm()"
+          class="btn-premium"
+          style="margin-top:20px;"
+        >
           CEK LAGI
         </button>
+
       `;
 
       setTimeout(() => {
@@ -639,18 +665,21 @@ async function loadUser() {
     } else {
 
       document.getElementById("result").innerHTML = `
+
         <div class="fancy-text">
           Username tidak ditemukan 🙏
         </div>
+
       `;
     }
 
   } catch (e) {
 
-    document.getElementById("result").innerHTML =
-      "⚠️ Error ambil data";
-
     console.log(e);
+
+    document.getElementById("result").innerHTML = `
+      ⚠️ Error ambil data
+    `;
   }
 }
 
@@ -665,6 +694,7 @@ function resetForm() {
     document.querySelector(".btn-premium");
 
   inputEl.style.display = "block";
+
   buttonEl.style.display = "inline-block";
 
   inputEl.value = "";
@@ -686,6 +716,7 @@ document.addEventListener(
       function (e) {
 
         if (e.key === "Enter") {
+
           loadUser();
         }
 
