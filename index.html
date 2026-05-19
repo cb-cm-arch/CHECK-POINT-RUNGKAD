@@ -549,8 +549,9 @@ body::after {
 
 <script>
 
-// 🔥 ANIMASI ANGKA NAIK (SMOOTH & HALUS)
+// 🔥 ANIMASI ANGKA
 function animateValue(id, start, end, duration) {
+
   let current = start;
   let range = end - start;
   let increment = Math.ceil(range / 60);
@@ -559,6 +560,7 @@ function animateValue(id, start, end, duration) {
   let obj = document.getElementById(id);
 
   let timer = setInterval(function () {
+
     current += increment;
 
     if (current >= end) {
@@ -567,86 +569,132 @@ function animateValue(id, start, end, duration) {
     }
 
     obj.innerText = current.toLocaleString();
+
   }, stepTime);
 }
 
 
 // 🔥 LOAD USER
 async function loadUser() {
+
   const inputEl = document.getElementById("username");
   const buttonEl = document.querySelector(".btn-premium");
+
   const input = inputEl.value.trim().toLowerCase();
 
   if (!input) {
-    document.getElementById("result").innerHTML = "⚠️ Masukkan username";
+
+    document.getElementById("result").innerHTML =
+      "⚠️ Masukkan username";
+
     return;
   }
 
-  // 🔥 efek klik tombol (halus & elegan)
-  buttonEl.style.transform = "scale(0.96)";
-  setTimeout(() => {
-    buttonEl.style.transform = "scale(1)";
-  }, 120);
-
-  document.getElementById("result").innerHTML = "🔄 Loading...";
+  document.getElementById("result").innerHTML =
+    "🔄 Loading...";
 
   const url =
-  "https://script.google.com/macros/s/AKfycbw5N0pgbS3PdUa8hueydLEnASXIQlTZI2m_oshR9SE6hYfxGyKiFV8KEdTKOGaiS0rU/exec?username="
-  + encodeURIComponent(input);
+    "https://script.google.com/macros/s/AKfycbw5N0pgbS3PdUa8hueydLEnASXIQlTZI2m_oshR9SE6hYfxGyKiFV8KEdTKOGaiS0rU/exec?username="
+    + encodeURIComponent(input);
 
-try {
-  const res = await fetch(url);
-  const user = await res.json();
+  try {
 
-  if (user && !user.error) {
+    const res = await fetch(url);
+    const user = await res.json();
 
-    inputEl.style.display = "none";
-    buttonEl.style.display = "none";
+    if (user && !user.error) {
 
-    document.getElementById("result").innerHTML = `
-      <h3 style="opacity:0.7;">Username</h3>
-      <h2 style="color:#00c6ff;">
-        ${user.username}
-      </h2>
+      inputEl.style.display = "none";
+      buttonEl.style.display = "none";
 
-      <h3 style="margin-top:10px;">Point Saat Ini</h3>
-      <h1 id="point" class="glow-point">0</h1>
+      document.getElementById("result").innerHTML = `
+        <h3 style="opacity:0.7;">Username</h3>
 
-      <button onclick="resetForm()" class="btn-premium" style="margin-top:20px;">
-        CEK LAGI
-      </button>
-    `;
+        <h2 style="color:#00c6ff;">
+          ${user.username}
+        </h2>
 
-    setTimeout(() => {
-      animateValue("point", 0, parseInt(user.point), 1000);
-    }, 200);
+        <h3 style="margin-top:10px;">
+          Sisa Point
+        </h3>
 
-  } else {
+        <h1 id="point">0</h1>
 
-    document.getElementById("result").innerHTML = `
-      <div class="fancy-text">
-        Mohon maaf kak, data point Kakak belum tersedia.<br>
-        Silakan hubungi admin untuk informasi lebih lanjut 🙏
-      </div>
-    `;
-  }
+        <button onclick="resetForm()" class="btn-premium" style="margin-top:20px;">
+          CEK LAGI
+        </button>
+      `;
 
-}catch (e) {
+      setTimeout(() => {
 
+        animateValue(
+          "point",
+          0,
+          parseInt(user.point),
+          1000
+        );
 
+      }, 200);
 
-// 🔥 ENTER = LANGSUNG CHECK
-document.addEventListener("DOMContentLoaded", function() {
-  const inputEl = document.getElementById("username");
+    } else {
 
-  inputEl.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-      loadUser();
+      document.getElementById("result").innerHTML = `
+        <div class="fancy-text">
+          Username tidak ditemukan 🙏
+        </div>
+      `;
     }
-  });
-});
+
+  } catch (e) {
+
+    document.getElementById("result").innerHTML =
+      "⚠️ Error ambil data";
+
+    console.log(e);
+  }
+}
+
+
+// 🔥 RESET
+function resetForm() {
+
+  const inputEl =
+    document.getElementById("username");
+
+  const buttonEl =
+    document.querySelector(".btn-premium");
+
+  inputEl.style.display = "block";
+  buttonEl.style.display = "inline-block";
+
+  inputEl.value = "";
+
+  document.getElementById("result").innerHTML = "";
+}
+
+
+// 🔥 ENTER
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    const inputEl =
+      document.getElementById("username");
+
+    inputEl.addEventListener(
+      "keypress",
+      function (e) {
+
+        if (e.key === "Enter") {
+          loadUser();
+        }
+
+      }
+    );
+
+  }
+);
 
 </script>
-
 </body>
 </html>
