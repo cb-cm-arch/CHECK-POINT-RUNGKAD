@@ -625,31 +625,58 @@ async function loadUser() {
 
       document.getElementById("result").innerHTML = `
 
-        <h3 style="opacity:0.7;">
-          Username
-        </h3>
+  <h3 style="opacity:0.7;">
+    Username
+  </h3>
 
-        <h2 style="color:#00c6ff;">
-          ${user.username}
-        </h2>
+  <h2 style="color:#00c6ff;">
+    ${user.username}
+  </h2>
 
-        <h3 style="margin-top:10px;">
-          Sisa Point
-        </h3>
+  <h3 style="margin-top:10px;">
+    Sisa Point
+  </h3>
 
-        <h1 id="point">
-          0
-        </h1>
+  <h1 id="point">
+    0
+  </h1>
 
-        <button
-          onclick="resetForm()"
-          class="btn-premium"
-          style="margin-top:20px;"
-        >
-          CEK LAGI
-        </button>
+  <div style="margin-top:20px; width:100%;">
 
-      `;
+    <input
+      type="number"
+      id="claimInput"
+      placeholder="Masukkan nominal claim"
+     style="
+  width:70%;
+  padding:8px;
+  border:none;
+  border-radius:10px;
+  box-sizing:border-box;
+  text-align:center;
+  font-size:13px;
+"
+    >
+
+  </div>
+
+  <button
+    onclick="claimPoint('${user.username}')"
+    class="btn-premium"
+    style="margin-top:15px;"
+  >
+    CLAIM
+  </button>
+
+  <button
+    onclick="resetForm()"
+    class="btn-premium"
+    style="margin-top:15px;"
+  >
+    CEK LAGI
+  </button>
+
+ `;
 
       setTimeout(() => {
 
@@ -725,7 +752,41 @@ document.addEventListener(
 
   }
 );
+async function claimPoint(username) {
 
+  const point =
+    document.getElementById("claimInput").value;
+
+  const url =
+    "https://script.google.com/macros/s/AKfycbxoSOfE8PWdw13d8aConHDvatsbLDga4pp47lH6TWuq-zVv2XsuJUJXW2PORxygPQ2s/exec"
+    + "?claim=1"
+    + "&username=" + encodeURIComponent(username)
+    + "&point=" + encodeURIComponent(point);
+
+  try {
+
+    const res = await fetch(url);
+
+    const data = await res.json();
+
+    console.log(data);
+
+    if (data.success) {
+
+      alert("CLAIM BERHASIL 😎🔥");
+
+    } else {
+
+      alert("USERNAME TIDAK KETEMU");
+    }
+
+  } catch (e) {
+
+    console.log(e);
+
+    alert("ERROR CLAIM");
+  }
+}
 </script>
 </body>
 </html>
