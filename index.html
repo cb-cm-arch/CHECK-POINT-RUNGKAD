@@ -133,17 +133,22 @@ body{
 
 .btn-premium{
 
-  margin-top:15px;
+  margin-top:12px;
 
-  width:100%;
+  width:40%;
 
-  padding:14px;
+  padding:8px 12px; /* 🔥 INI YANG KECILKAN */
 
   border:none;
   border-radius:30px;
 
   font-weight:bold;
-  font-size:15px;
+  font-size:12px;
+
+  margin-left:auto;
+  margin-right:auto;
+
+  display:block;
 
   cursor:pointer;
 
@@ -681,7 +686,7 @@ async function claimPoint() {
   console.log(point);
 
   const url =
-    "https://script.google.com/macros/s/AKfycbxoSOfE8PWdw13d8aConHDvatsbLDga4pp47lH6TWuq-zVv2XsuJUJXW2PORxygPQ2s/exec"
+    "https://script.google.com/macros/s/AKfycbxFpkjIA9E6VkXVy79fVsVzeeIIDE0I_h0LBxv6aiov0JM51CN4eIEEgUDuSoNeYEno/exec"
     + "?claim=1"
     + "&username=" + encodeURIComponent(username)
     + "&point=" + encodeURIComponent(point);
