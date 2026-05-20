@@ -1,318 +1,66 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHECK POINT RUNGKAD</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:Arial;
-  color:white;
-  overflow-x:hidden;
-  background:
-  url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg")
-  no-repeat center center;
-  background-size:cover;
-}
-
-.wrapper{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
-
-.login-box{
-  width:100%;
-  max-width:380px;
-  padding:30px;
-  border-radius:25px;
-  background:rgba(0,0,40,0.75);
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(0,255,255,0.3);
-  box-shadow:
-  0 0 30px rgba(0,255,255,0.25),
-  inset 0 0 20px rgba(0,255,255,0.1);
-  text-align:center;
-}
-
-.promo-banner{
-  position:absolute;
-  top:30px;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.promo-banner img{
-  width:420px;
-  max-width:90vw;
-  border-radius:20px;
-  box-shadow:0 0 20px rgba(0,255,255,0.4);
-}
-
-.gif-top img{
-  width:120px;
-  margin-bottom:10px;
-}
-
-.form-group{
-  margin-top:10px;
-}
-
-.form-group label{
-  display:block;
-  margin-bottom:10px;
-  font-size:14px;
-}
-
-.form-group input{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:15px;
-  font-size:15px;
-}
-
-.btn-premium{
-  margin-top:12px;
-  width:40%;
-  padding:8px 12px;
-  border:none;
-  border-radius:30px;
-  font-weight:bold;
-  font-size:12px;
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
-  cursor:pointer;
-  color:white;
-  background:linear-gradient(90deg,#00c6ff,#0072ff);
-  box-shadow:0 0 15px rgba(0,150,255,0.6);
-  transition:0.3s;
-}
-
-.btn-premium:hover{
-  transform:scale(1.03);
-  box-shadow:0 0 25px rgba(0,200,255,1);
-}
-
-.btn-premium:disabled{
-  opacity:0.6;
-  cursor:not-allowed;
-  transform:none;
-}
-
-#result{
-  margin-top:20px;
-}
-
-.nav-game{
-  position:fixed;
-  bottom:15px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90%;
-  max-width:420px;
-  padding:14px;
-  border-radius:25px;
-  background:linear-gradient(135deg,rgba(0,80,180,0.8),rgba(0,20,80,0.95));
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(0,255,255,0.2);
-}
-
-.nav-game a{
-  text-decoration:none;
-  color:white;
-  font-size:11px;
-  text-align:center;
-}
-
-.nav-icon{
-  width:55px;
-  height:55px;
-  animation:floatIcon 3s ease-in-out infinite;
-}
-
-@keyframes floatIcon{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-4px);}
-  100%{transform:translateY(0);}
-}
-
-@media(max-width:768px){
-  body{
-    background-position:center;
-  }
-
-  .wrapper{
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:20px;
-  }
-
-  .login-box{
-    max-width:100%;
-    padding:22px;
-  }
-
-  .promo-banner{
-    top:20px;
-  }
-
-  .promo-banner img{
-    width:92vw;
-  }
-
-  .gif-top img{
-    width:90px;
-  }
-
-  .btn-premium{
-    font-size:14px;
-    padding:13px;
-  }
-
-  .nav-game{
-    width:95%;
-    padding:10px;
-  }
-
-  .nav-icon{
-    width:45px;
-    height:45px;
-  }
-}
-
-@media(min-width:1024px){
-  .wrapper{
-    padding-top:120px;
-  }
-
-  .login-box{
-    max-width:450px;
-    padding:40px;
-  }
-
-  .promo-banner img{
-    width:520px;
-  }
-
-  .gif-top img{
-    width:140px;
-  }
-
-  .btn-premium{
-    font-size:17px;
-  }
-
-  .form-group input{
-    font-size:16px;
-  }
-
-  .nav-game{
-    max-width:500px;
-  }
-
-  .nav-icon{
-    width:60px;
-    height:60px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="nav-game">
-  <a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank">
-    <img src="https://cliply.co/wp-content/uploads/2021/08/372108180_WHATSAPP_ICON_400.gif" class="nav-icon">
-    <div>WhatsApp</div>
-  </a>
-
-  <a href="https://direct.lc.chat/12319896" target="_blank">
-    <img src="https://media.tenor.com/S65c088OseQAAAAj/livechat.gif" class="nav-icon">
-    <div>Live Chat</div>
-  </a>
-
-  <a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank">
-    <img src="https://patung288-bo.l88x.cfd/upload/tele.gif" class="nav-icon">
-    <div>Telegram</div>
-  </a>
-</div>
-
-<div class="wrapper">
-
-  <div class="promo-banner">
-    <img src="https://clickbet88sedekahrejeki05.xyz/storage/promotionbanner/0a94d363-2393-4080-af8f-1e293ecd8d13.jpeg">
-  </div>
-
-  <div class="login-box">
-
-    <div class="gif-top">
-      <img src="https://clickbet88sedekahrejeki05.xyz/storage/webpersonalize/d54f5304-03b3-49f7-b283-e6fe0c595ca7.gif">
-    </div>
-
-    <div class="form-group">
-      <label>CHECK POINT</label>
-      <input type="text" id="username" placeholder="Enter User ID">
-    </div>
-
-    <button class="btn-premium" onclick="loadUser()">CHECK SEKARANG</button>
-
-    <div id="result"></div>
-
-  </div>
-
-</div>
-
 <script>
-const API_URL =
-"https://script.google.com/macros/s/AKfycbyg-vX9TUx7Ahv7jlRsG6O0GvcC2A1XeWfxf-rnc0dU71_UDVSbrb09qbk7rlM8KD0/exec";
 
+const API_URL =
+"https://script.google.com/macros/s/AKfycbxOAlvDvJ8gbDWrHdTXQaseFSva_uE2wX-lux6Ock4qZ6w4j1f2DpYMKpcvAqiqyRny/exec";
+
+
+// 🔥 ANIMASI ANGKA
 function animateValue(id, start, end, duration) {
+
   let current = start;
   let range = end - start;
+
   let increment = Math.ceil(range / 60);
-  let stepTime = Math.abs(Math.floor(duration / 60));
+
+  let stepTime = Math.abs(
+    Math.floor(duration / 60)
+  );
+
   let obj = document.getElementById(id);
 
   let timer = setInterval(function () {
+
     current += increment;
 
     if (current >= end) {
+
       current = end;
+
       clearInterval(timer);
     }
 
-    obj.innerText = current.toLocaleString();
+    obj.innerText =
+      current.toLocaleString();
+
   }, stepTime);
 }
 
+
+// 🔥 LOAD USER
 async function loadUser() {
-  const inputEl = document.getElementById("username");
-  const buttonEl = document.querySelector(".btn-premium");
-  const input = inputEl.value.trim().toLowerCase();
+
+  const inputEl =
+    document.getElementById("username");
+
+  const buttonEl =
+    document.querySelector(".btn-premium");
+
+  const input =
+    inputEl.value.trim().toLowerCase();
 
   if (!input) {
-    document.getElementById("result").innerHTML = "⚠️ Masukkan username";
+
+    document.getElementById("result").innerHTML =
+      "⚠️ Masukkan username";
+
     return;
   }
 
   buttonEl.disabled = true;
   buttonEl.innerHTML = "LOADING...";
-  document.getElementById("result").innerHTML = "🔄 Loading...";
+
+  document.getElementById("result").innerHTML =
+    "🔄 Loading...";
 
   const url =
     API_URL +
@@ -320,77 +68,94 @@ async function loadUser() {
     encodeURIComponent(input);
 
   try {
+
     const res = await fetch(url);
+
     const user = await res.json();
 
     if (user.username) {
+
       inputEl.style.display = "none";
+
       buttonEl.style.display = "none";
 
       document.getElementById("result").innerHTML = `
-        <input type="hidden" id="claimUsername" value="${user.username}">
 
-        <h3 style="opacity:0.7;">Username</h3>
+      <input
+        type="hidden"
+        id="claimUsername"
+        value="${user.username}"
+      >
 
-        <h2 style="color:#00c6ff;">
-          ${user.username}
-        </h2>
+      <h3 style="opacity:0.7;">
+        Username
+      </h3>
 
-        <h3 style="margin-top:10px;">
-          Sisa Point
-        </h3>
+      <h2 style="color:#00c6ff;">
+        ${user.username}
+      </h2>
 
-        <h1 id="point">0</h1>
+      <h3 style="margin-top:10px;">
+        Sisa Point
+      </h3>
 
-        <div style="margin-top:20px; width:100%;">
-          <input
-            type="number"
-            id="claimInput"
-            placeholder="Masukkan nominal claim"
-            style="
-              width:70%;
-              padding:8px;
-              border:none;
-              border-radius:10px;
-              box-sizing:border-box;
-              text-align:center;
-              font-size:13px;
-            "
-          >
-        </div>
+      <h1 id="point">
+        0
+      </h1>
 
-        <button
-          onclick="claimPoint()"
-          class="btn-premium"
-          id="claimBtn"
-          style="margin-top:15px;"
+      <div style="margin-top:20px; width:100%;">
+
+        <input
+          type="number"
+          id="claimInput"
+          placeholder="Masukkan nominal claim"
+          style="
+            width:70%;
+            padding:8px;
+            border:none;
+            border-radius:10px;
+            box-sizing:border-box;
+            text-align:center;
+            font-size:13px;
+          "
         >
-          CLAIM
-        </button>
 
-        <button
-          onclick="resetForm()"
-          class="btn-premium"
-          style="margin-top:15px;"
-        >
-          CEK LAGI
-        </button>
+      </div>
+
+      <button
+        onclick="claimPoint()"
+        class="btn-premium"
+        id="claimBtn"
+        style="margin-top:15px;"
+      >
+        CLAIM
+      </button>
+
+      <button
+        onclick="resetForm()"
+        class="btn-premium"
+        style="margin-top:15px;"
+      >
+        CEK LAGI
+      </button>
+
       `;
 
       setTimeout(() => {
+
         animateValue(
           "point",
           0,
           parseInt(user.point || 0),
           1000
         );
+
       }, 200);
 
     } else {
+
       document.getElementById("result").innerHTML = `
-        <div class="fancy-text">
-          Username tidak ditemukan 🙏
-        </div>
+        Username tidak ditemukan 🙏
       `;
 
       buttonEl.disabled = false;
@@ -398,62 +163,105 @@ async function loadUser() {
     }
 
   } catch (e) {
+
     console.log(e);
 
-    document.getElementById("result").innerHTML = "⚠️ Error ambil data";
+    document.getElementById("result").innerHTML =
+      "⚠️ Error ambil data";
 
     buttonEl.disabled = false;
     buttonEl.innerHTML = "CHECK SEKARANG";
   }
 }
 
+
+// 🔥 RESET
 function resetForm() {
-  const inputEl = document.getElementById("username");
-  const buttonEl = document.querySelector(".btn-premium");
+
+  const inputEl =
+    document.getElementById("username");
+
+  const buttonEl =
+    document.querySelector(".btn-premium");
 
   inputEl.style.display = "block";
+
   buttonEl.style.display = "block";
+
   buttonEl.disabled = false;
-  buttonEl.innerHTML = "CHECK SEKARANG";
+
+  buttonEl.innerHTML =
+    "CHECK SEKARANG";
 
   inputEl.value = "";
+
   document.getElementById("result").innerHTML = "";
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const inputEl = document.getElementById("username");
 
-  inputEl.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      loadUser();
-    }
-  });
-});
+// 🔥 ENTER
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
 
+    const inputEl =
+      document.getElementById("username");
+
+    inputEl.addEventListener(
+      "keypress",
+      function (e) {
+
+        if (e.key === "Enter") {
+
+          loadUser();
+        }
+
+      }
+    );
+
+  }
+);
+
+
+// 🔥 CLAIM POINT
 async function claimPoint() {
-  const claimBtn = document.getElementById("claimBtn");
+
+  const claimBtn =
+    document.getElementById("claimBtn");
 
   const username =
     document.getElementById("claimUsername").value;
 
   const point =
-    Number(document.getElementById("claimInput").value);
+    Number(
+      document.getElementById("claimInput").value
+    );
 
+  // VALIDASI KOSONG
   if (!point) {
+
     alert("Masukkan nominal");
+
     return;
   }
 
+  // MINIMAL
   if (point < 5) {
+
     alert("Minimal claim 5 point 😎");
+
     return;
   }
 
+  // MAKSIMAL
   if (point > 500) {
+
     alert("Maksimal claim 500 point 😎");
+
     return;
   }
 
+  // LOADING
   claimBtn.disabled = true;
   claimBtn.innerHTML = "LOADING...";
 
@@ -464,30 +272,39 @@ async function claimPoint() {
     + "&point=" + encodeURIComponent(point);
 
   try {
+
     const res = await fetch(url);
+
     const data = await res.json();
 
     if (data.success) {
-      document.getElementById("point").innerText =
-        Number(data.sisa).toLocaleString();
 
-      document.getElementById("claimInput").value = "";
+      // 🔥 UPDATE TANPA RELOAD FULL
+      document.getElementById("point")
+        .innerText =
+        Number(data.sisa)
+        .toLocaleString();
+
+      // RESET INPUT
+      document.getElementById("claimInput")
+        .value = "";
 
       alert("CLAIM BERHASIL 😎🔥");
 
     } else {
+
       alert(data.message || "CLAIM GAGAL");
     }
 
   } catch (e) {
+
     console.log(e);
+
     alert("ERROR CLAIM");
   }
 
   claimBtn.disabled = false;
   claimBtn.innerHTML = "CLAIM";
 }
-</script>
 
-</body>
-</html>
+</script>
