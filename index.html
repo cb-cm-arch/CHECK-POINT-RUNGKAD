@@ -673,11 +673,30 @@ async function claimPoint() {
     document.getElementById("claimUsername").value;
 
   const point =
-    document.getElementById("claimInput").value;
+    Number(
+      document.getElementById("claimInput").value
+    );
 
+  // 🔥 VALIDASI INPUT KOSONG
   if (!point) {
 
     alert("Masukkan nominal");
+
+    return;
+  }
+
+  // 🔥 MINIMAL CLAIM 5
+  if (point < 5) {
+
+    alert("Minimal claim 5 point 😎");
+
+    return;
+  }
+
+  // 🔥 MAKSIMAL CLAIM 500
+  if (point > 500) {
+
+    alert("Maksimal claim 500 point 😎");
 
     return;
   }
@@ -698,9 +717,12 @@ async function claimPoint() {
 
       alert("CLAIM BERHASIL 😎🔥");
 
+      // 🔥 REFRESH DATA
+      loadUser();
+
     } else {
 
-      alert("USERNAME TIDAK KETEMU");
+      alert(data.message || "CLAIM GAGAL");
     }
 
   } catch (e) {
