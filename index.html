@@ -1,3 +1,462 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHECK POINT RUNGKAD</title>
+
+<style>
+
+/* BODY */
+/* ================================= */
+/* 🔥 GLOBAL */
+/* ================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial;
+  color:white;
+  overflow-x:hidden;
+
+  background:
+  url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg")
+  no-repeat center center;
+
+  background-size:cover;
+}
+
+/* ================================= */
+/* 🔥 WRAPPER */
+/* ================================= */
+
+.wrapper{
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+}
+
+/* ================================= */
+/* 🔥 LOGIN BOX */
+/* ================================= */
+
+.login-box{
+
+  width:100%;
+  max-width:380px;
+
+  padding:30px;
+
+  border-radius:25px;
+
+  background:rgba(0,0,40,0.75);
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(0,255,255,0.3);
+
+  box-shadow:
+  0 0 30px rgba(0,255,255,0.25),
+  inset 0 0 20px rgba(0,255,255,0.1);
+
+  text-align:center;
+}
+
+/* ================================= */
+/* 🔥 BANNER */
+/* ================================= */
+
+.promo-banner{
+  position:absolute;
+  top:30px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.promo-banner img{
+
+  width:420px;
+  max-width:90vw;
+
+  border-radius:20px;
+
+  box-shadow:
+  0 0 20px rgba(0,255,255,0.4);
+}
+
+/* ================================= */
+/* 🔥 GIF */
+/* ================================= */
+
+.gif-top img{
+  width:120px;
+  margin-bottom:10px;
+}
+
+/* ================================= */
+/* 🔥 INPUT */
+/* ================================= */
+
+.form-group{
+  margin-top:10px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+.form-group input{
+
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+  border-radius:15px;
+
+  font-size:15px;
+}
+
+/* ================================= */
+/* 🔥 BUTTON */
+/* ================================= */
+
+.btn-premium{
+
+  margin-top:12px;
+
+  width:40%;
+
+  padding:8px 12px; /* 🔥 INI YANG KECILKAN */
+
+  border:none;
+  border-radius:30px;
+
+  font-weight:bold;
+  font-size:12px;
+
+  margin-left:auto;
+  margin-right:auto;
+
+  display:block;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    90deg,
+    #00c6ff,
+    #0072ff
+  );
+
+  box-shadow:
+  0 0 15px rgba(0,150,255,0.6);
+
+  transition:0.3s;
+}
+
+.btn-premium:hover{
+
+  transform:scale(1.03);
+
+  box-shadow:
+  0 0 25px rgba(0,200,255,1);
+}
+
+/* ================================= */
+/* 🔥 RESULT */
+/* ================================= */
+
+#result{
+  margin-top:20px;
+}
+
+/* ================================= */
+/* 🔥 NAVBAR */
+/* ================================= */
+
+.nav-game{
+
+  position:fixed;
+
+  bottom:15px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:90%;
+  max-width:420px;
+
+  padding:14px;
+
+  border-radius:25px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(0,80,180,0.8),
+    rgba(0,20,80,0.95)
+  );
+
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(0,255,255,0.2);
+}
+
+.nav-game a{
+  text-decoration:none;
+  color:white;
+  font-size:11px;
+  text-align:center;
+}
+
+.nav-icon{
+  width:55px;
+  height:55px;
+
+  animation:floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-4px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+}
+
+/* ================================= */
+/* 📱 MOBILE */
+/* ================================= */
+
+@media(max-width:768px){
+
+  body{
+
+    background-position:center;
+  }
+@media(max-width:768px){
+
+  body{
+    background-position:center;
+  }
+
+  .wrapper{
+
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:20px;
+  }
+
+  .login-box{
+
+    max-width:100%;
+
+    padding:22px;
+  }
+
+  .promo-banner{
+
+    top:20px;
+  }
+
+  .promo-banner img{
+
+    width:92vw;
+  }
+
+  .gif-top img{
+
+    width:90px;
+  }
+
+  .btn-premium{
+
+    font-size:14px;
+    padding:13px;
+  }
+
+  .nav-game{
+
+    width:95%;
+    padding:10px;
+  }
+
+  .nav-icon{
+
+    width:45px;
+    height:45px;
+  }
+}
+  .login-box{
+
+    max-width:100%;
+
+    padding:22px;
+  }
+
+  .promo-banner{
+
+    top:20px;
+  }
+
+  .promo-banner img{
+
+    width:92vw;
+  }
+
+  .gif-top img{
+
+    width:90px;
+  }
+
+  .btn-premium{
+
+    font-size:14px;
+    padding:13px;
+  }
+
+  .nav-game{
+
+    width:95%;
+    padding:10px;
+  }
+
+  .nav-icon{
+
+    width:45px;
+    height:45px;
+  }
+}
+
+/* ================================= */
+/* 💻 DESKTOP */
+/* ================================= */
+
+@media(min-width:1024px){
+
+  .wrapper{
+
+    padding-top:120px;
+  }
+
+  .login-box{
+
+    max-width:450px;
+
+    padding:40px;
+  }
+
+  .promo-banner img{
+
+    width:520px;
+  }
+
+  .gif-top img{
+
+    width:140px;
+  }
+
+  .btn-premium{
+
+    font-size:17px;
+  }
+
+  .form-group input{
+
+    font-size:16px;
+  }
+
+  .nav-game{
+
+    max-width:500px;
+  }
+
+  .nav-icon{
+
+    width:60px;
+    height:60px;
+  }
+}
+  
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav-game">
+
+  <a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank">
+    <img src="https://cliply.co/wp-content/uploads/2021/08/372108180_WHATSAPP_ICON_400.gif" class="nav-icon">
+    <div>WhatsApp</div>
+  </a>
+
+  <a href="https://direct.lc.chat/12319896" target="_blank">
+    <img src="https://media.tenor.com/S65c088OseQAAAAj/livechat.gif" class="nav-icon">
+    <div>Live Chat</div>
+  </a>
+
+  <a href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank">
+    <img src="https://patung288-bo.l88x.cfd/upload/tele.gif" class="nav-icon">
+    <div>Telegram</div>
+  </a>
+
+</div>
+
+<!-- CONTENT -->
+<div class="wrapper">
+
+  <div class="promo-banner">
+  <img src="https://clickbet88sedekahrejeki05.xyz/storage/promotionbanner/0a94d363-2393-4080-af8f-1e293ecd8d13.jpeg">
+</div>
+
+<div class="login-box">
+
+  <!-- 🔥 GIF DI ATAS -->
+  <div class="gif-top">
+    <img src="https://clickbet88sedekahrejeki05.xyz/storage/webpersonalize/d54f5304-03b3-49f7-b283-e6fe0c595ca7.gif">
+  </div>
+
+  <div class="form-group">
+    <label>CHECK POINT</label>
+    <input type="text" id="username" placeholder="Enter User ID">
+  </div>
+
+    <button class="btn-premium" onclick="loadUser()">CHECK SEKARANG</button>
+
+    <div id="result"></div>
+
+  </div>
+
+</div>
+
 <script>
 
 const API_URL =
@@ -308,3 +767,5 @@ async function claimPoint() {
 }
 
 </script>
+</body>
+</html>
