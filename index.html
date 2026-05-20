@@ -457,6 +457,8 @@ body{
 
 </div>
 
+<script>
+
 // 🔥 ANIMASI ANGKA
 function animateValue(id, start, end, duration) {
 
@@ -742,6 +744,115 @@ async function claimPoint() {
   }
 }
 
+</script>
+
+
+// 🔥 RESET
+function resetForm() {
+
+  const inputEl =
+    document.getElementById("username");
+
+  const buttonEl =
+    document.querySelector(".btn-premium");
+
+  inputEl.style.display = "block";
+
+  buttonEl.style.display = "inline-block";
+
+  inputEl.value = "";
+
+  document.getElementById("result").innerHTML = "";
+}
+
+
+// 🔥 ENTER
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    const inputEl =
+      document.getElementById("username");
+
+    inputEl.addEventListener(
+      "keypress",
+      function (e) {
+
+        if (e.key === "Enter") {
+
+          loadUser();
+        }
+
+      }
+    );
+
+  }
+);
+async function claimPoint() {
+
+  const username =
+    document.getElementById("claimUsername").value;
+
+  const point =
+    Number(
+      document.getElementById("claimInput").value
+    );
+
+  // 🔥 VALIDASI INPUT KOSONG
+  if (!point) {
+
+    alert("Masukkan nominal");
+
+    return;
+  }
+
+  // 🔥 MINIMAL CLAIM 5
+  if (point < 5) {
+
+    alert("Minimal claim 5 point 😎");
+
+    return;
+  }
+
+  // 🔥 MAKSIMAL CLAIM 500
+  if (point > 500) {
+
+    alert("Maksimal claim 500 point 😎");
+
+    return;
+  }
+
+  const url =
+    "https://script.google.com/macros/s/AKfycbx35a8HB59Fzwh6ANBUtoFiFf3eKbNhkUQbi8RWAuFUMyLCb_nj6YASy0so804WjGEj/exec"
+    + "?claim=1"
+    + "&username=" + encodeURIComponent(username)
+    + "&point=" + encodeURIComponent(point);
+
+  try {
+
+    const res = await fetch(url);
+
+    const data = await res.json();
+
+    if (data.success) {
+
+      alert("CLAIM BERHASIL 😎🔥");
+
+      // 🔥 REFRESH DATA
+      loadUser();
+
+    } else {
+
+      alert(data.message || "CLAIM GAGAL");
+    }
+
+  } catch (e) {
+
+    console.log(e);
+
+    alert("ERROR CLAIM");
+  }
+}
 </script>
 </script>
 </body>
