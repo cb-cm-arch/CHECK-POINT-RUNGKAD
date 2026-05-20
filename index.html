@@ -8,492 +8,397 @@
 <style>
 
 /* BODY */
-body {
-  margin: 0;
-  font-family: Arial;
-  color: white;
-  background: url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg") no-repeat center/cover;
-  overflow: hidden;
+/* ================================= */
+/* 🔥 GLOBAL */
+/* ================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* CENTER */
-.wrapper {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body{
+  font-family:Arial;
+  color:white;
+  overflow-x:hidden;
+
+  background:
+  url("https://cdn.it-cg.group/mysterybox/uploads/6880d07b9f2fc.CB031%20BG%20Desktop.jpg")
+  no-repeat center center;
+
+  background-size:cover;
 }
 
-/* BOX */
-.login-box {
-  width: 90%;
-  max-width: 320px;
-  padding: 25px;
-  border-radius: 20px;
+/* ================================= */
+/* 🔥 WRAPPER */
+/* ================================= */
 
-  background: rgba(0,0,40,0.8);
-  backdrop-filter: blur(15px);
+.wrapper{
+  min-height:100vh;
 
-  border: 1px solid rgba(0,255,255,0.3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+}
+
+/* ================================= */
+/* 🔥 LOGIN BOX */
+/* ================================= */
+
+.login-box{
+
+  width:100%;
+  max-width:380px;
+
+  padding:30px;
+
+  border-radius:25px;
+
+  background:rgba(0,0,40,0.75);
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(0,255,255,0.3);
 
   box-shadow:
-    0 0 25px rgba(0,255,255,0.2),
-    inset 0 0 20px rgba(0,255,255,0.1);
+  0 0 30px rgba(0,255,255,0.25),
+  inset 0 0 20px rgba(0,255,255,0.1);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align:center;
 }
 
-/* FORM */
-.form-group {
-  width: 100%;
-  max-width: 240px;
-  margin-bottom: 20px;
-  text-align: center;
+/* ================================= */
+/* 🔥 BANNER */
+/* ================================= */
+
+.promo-banner{
+  position:absolute;
+  top:30px;
+  left:50%;
+  transform:translateX(-50%);
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 12px; /* 🔥 tambah jarak ke bawah */
-  font-size: 13px;
-}
+.promo-banner img{
 
-/* INPUT */
-.form-group {
-  width: 100%;
-}
+  width:420px;
+  max-width:90vw;
 
-.form-group input {
-  width: 100%;
-  box-sizing: border-box; /* 🔥 ini kunci */
-  padding: 10px;
-
-  border-radius: 10px;
-  border: none;
-
- text-align: left; /* 🔥 geser ke kiri */
-}
-/* BUTTON */
-.btn-premium {
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: none;
-
-  background: linear-gradient(90deg,#00c6ff,#0072ff);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-
-  box-shadow: 0 0 15px rgba(0,150,255,0.7);
-}
-
-.btn-premium:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(0,200,255,1);
-}
-
-/* RESULT */
-#result {
-  margin-top: 20px;
-  text-align: center;
-}
-
-/* GIF */
-.gif-floating {
-  position: absolute;
-  top: 45%; /* 🔥 TURUNKAN KE TENGAH */
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-  z-index: 9999; /* 🔥 selalu di atas */
-  pointer-events: none;
-}
-  .login-box {
-  margin-top: 60px; /* 🔥 kasih space ke bawah */
-}
-
-/* NAVBAR */
-.nav-game {
-  position: fixed;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 90%;
-  max-width: 420px;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  padding: 12px;
-  border-radius: 20px;
-
-  background: rgba(0,60,120,0.6);
-  backdrop-filter: blur(15px);
-
-  border: 1px solid rgba(0,255,255,0.3);
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-/* NAV ICON */
-.nav-icon {
-  width: 55px;
-  height: 55px;
-  filter: drop-shadow(0 0 10px rgba(0,255,255,0.8));
-}
-
-/* NAV TEXT */
-.nav-game a {
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  font-size: 11px;
-}
-
-  .promo-banner {
-  position: absolute;
-  top: 40px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.promo-banner img {
-  width: 90%;
-  max-width: 400px;
-  border-radius: 15px;
+  border-radius:20px;
 
   box-shadow:
-    0 0 20px rgba(0,255,255,0.4),
-    0 0 40px rgba(0,255,255,0.2);
-
-  animation: glowBanner 2s infinite alternate;
+  0 0 20px rgba(0,255,255,0.4);
 }
 
-@keyframes glowBanner {
-  from {
-    box-shadow: 0 0 10px rgba(0,255,255,0.3);
-  }
-  to {
-    box-shadow: 0 0 30px rgba(0,255,255,0.8);
-  }
-}
-  .gif-top {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+/* ================================= */
+/* 🔥 GIF */
+/* ================================= */
+
+.gif-top img{
+  width:120px;
+  margin-bottom:10px;
 }
 
-.gif-top img {
-  width: 120px;
-  animation: none;      /* ❌ matikan animasi */
-  filter: none;         /* ❌ hilangkan glow */
+/* ================================= */
+/* 🔥 INPUT */
+/* ================================= */
+
+.form-group{
+  margin-top:10px;
 }
-  /* 🔥 NAVBAR PREMIUM */
-.nav-game {
-  position: fixed;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
 
-  width: 90%;
-  max-width: 420px;
+.form-group label{
+  display:block;
+  margin-bottom:10px;
+  font-size:14px;
+}
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.form-group input{
 
-  padding: 14px;
-  border-radius: 25px;
+  width:100%;
 
-  background: linear-gradient(135deg, rgba(0,80,180,0.7), rgba(0,20,80,0.9));
-  backdrop-filter: blur(20px);
+  padding:14px;
 
-  border: 1px solid rgba(0,255,255,0.3);
+  border:none;
+  border-radius:15px;
+
+  font-size:15px;
+}
+
+/* ================================= */
+/* 🔥 BUTTON */
+/* ================================= */
+
+.btn-premium{
+
+  margin-top:15px;
+
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+  border-radius:30px;
+
+  font-weight:bold;
+  font-size:15px;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    90deg,
+    #00c6ff,
+    #0072ff
+  );
 
   box-shadow:
-    0 0 20px rgba(0,255,255,0.3),
-    inset 0 0 15px rgba(0,255,255,0.1);
+  0 0 15px rgba(0,150,255,0.6);
 
-  overflow: hidden;
+  transition:0.3s;
 }
 
-/* 🔥 SHINE EFFECT */
-.nav-game::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
-  animation: shine 4s infinite;
+.btn-premium:hover{
+
+  transform:scale(1.03);
+
+  box-shadow:
+  0 0 25px rgba(0,200,255,1);
 }
 
-@keyframes shine {
-  0% { left: -100%; }
-  100% { left: 100%; }
+/* ================================= */
+/* 🔥 RESULT */
+/* ================================= */
+
+#result{
+  margin-top:20px;
 }
 
-/* 🔥 ITEM */
-.nav-game a {
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  font-size: 11px;
-  transition: 0.3s;
+/* ================================= */
+/* 🔥 NAVBAR */
+/* ================================= */
+
+.nav-game{
+
+  position:fixed;
+
+  bottom:15px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:90%;
+  max-width:420px;
+
+  padding:14px;
+
+  border-radius:25px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(0,80,180,0.8),
+    rgba(0,20,80,0.95)
+  );
+
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(0,255,255,0.2);
 }
 
-/* 🔥 ICON */
-.nav-icon {
-  width: 55px;
-  height: 55px;
-  transition: 0.3s;
-
-  filter: drop-shadow(0 0 8px rgba(0,255,255,0.6));
+.nav-game a{
+  text-decoration:none;
+  color:white;
+  font-size:11px;
+  text-align:center;
 }
 
-/* 🔥 HOVER EFFECT */
-.nav-game a:hover .nav-icon {
-  transform: scale(1.2) translateY(-5px);
-  filter: drop-shadow(0 0 15px rgba(0,255,255,1));
+.nav-icon{
+  width:55px;
+  height:55px;
+
+  animation:floatIcon 3s ease-in-out infinite;
 }
 
-/* 🔥 TEXT HOVER */
-.nav-game a:hover {
-  color: #00e6ff;
-}
-  .nav-icon {
-  animation: floatIcon 3s ease-in-out infinite;
-}
+@keyframes floatIcon{
 
-@keyframes floatIcon {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-  100% { transform: translateY(0); }
-}
-  .nav-game a:active .nav-icon {
-  transform: scale(0.9);
-  filter: drop-shadow(0 0 20px #00e6ff);
-}
-  .nav-game a:nth-child(1) .nav-icon {
-  filter: drop-shadow(0 0 10px #00ff88);
-}
-
-.nav-game a:nth-child(2) .nav-icon {
-  filter: drop-shadow(0 0 10px #ffcc00);
-}
-
-.nav-game a:nth-child(3) .nav-icon {
-  filter: drop-shadow(0 0 10px #00c6ff);
-}
-  .nav-icon {
-  animation: breathing 2.5s ease-in-out infinite;
-}
-
-@keyframes breathing {
-  0% { filter: brightness(1); }
-  50% { filter: brightness(1.4); }
-  100% { filter: brightness(1); }
-}
-/* 🔥 TEXT PREMIUM CLEAN */
-.fancy-text {
-  font-size: 14px;
-  line-height: 1.7;
-  text-align: center;
-
-  color: #ffffff;
-
-  /* glow elegan */
-  text-shadow:
-    0 0 6px rgba(0,255,255,0.5),
-    0 0 12px rgba(0,255,255,0.4);
-
-  /* animasi halus */
-  animation:
-    fadeUp 0.6s ease,
-    softGlow 2.5s ease-in-out infinite;
-
-}
-
-.fancy-text {
-  font-size: 14px;
-  line-height: 1.7;
-  text-align: center;
-  color: #ffffff;
-
-  /* glow halus aja */
-  text-shadow:
-    0 0 4px rgba(255,255,255,0.4),
-    0 0 8px rgba(255,255,255,0.2);
-
-  animation: fadeUp 0.5s ease;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
+  0%{
+    transform:translateY(0);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  50%{
+    transform:translateY(-4px);
+  }
+
+  100%{
+    transform:translateY(0);
   }
 }
 
-/* 🔥 MASUK HALUS */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
+/* ================================= */
+/* 📱 MOBILE */
+/* ================================= */
+
+@media(max-width:768px){
+
+  body{
+
+    background-position:center;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media(max-width:768px){
+
+  body{
+    background-position:center;
+  }
+
+  .wrapper{
+
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:20px;
+  }
+
+  .login-box{
+
+    max-width:100%;
+
+    padding:22px;
+  }
+
+  .promo-banner{
+
+    top:20px;
+  }
+
+  .promo-banner img{
+
+    width:92vw;
+  }
+
+  .gif-top img{
+
+    width:90px;
+  }
+
+  .btn-premium{
+
+    font-size:14px;
+    padding:13px;
+  }
+
+  .nav-game{
+
+    width:95%;
+    padding:10px;
+  }
+
+  .nav-icon{
+
+    width:45px;
+    height:45px;
+  }
+}
+  .login-box{
+
+    max-width:100%;
+
+    padding:22px;
+  }
+
+  .promo-banner{
+
+    top:20px;
+  }
+
+  .promo-banner img{
+
+    width:92vw;
+  }
+
+  .gif-top img{
+
+    width:90px;
+  }
+
+  .btn-premium{
+
+    font-size:14px;
+    padding:13px;
+  }
+
+  .nav-game{
+
+    width:95%;
+    padding:10px;
+  }
+
+  .nav-icon{
+
+    width:45px;
+    height:45px;
   }
 }
 
-/* 🔥 GLOW NAFAS (SOFT) */
-@keyframes softGlow {
-  0% {
-    text-shadow:
-      0 0 5px rgba(0,255,255,0.4),
-      0 0 10px rgba(0,255,255,0.3);
-  }
-  100% {
-    text-shadow:
-      0 0 12px rgba(0,255,255,0.8),
-      0 0 20px rgba(0,255,255,0.5);
-  }
-}
-/* ============================= */
-/* 🔥 RESPONSIVE MOBILE */
-/* ============================= */
-@media (max-width: 768px) {
+/* ================================= */
+/* 💻 DESKTOP */
+/* ================================= */
 
-  body {
-    background-position: center;
-    background-size: cover;
+@media(min-width:1024px){
+
+  .wrapper{
+
+    padding-top:120px;
   }
 
-  .login-box {
-    width: 90%;
-    max-width: 300px;
-    padding: 20px;
+  .login-box{
+
+    max-width:450px;
+
+    padding:40px;
   }
 
-  .promo-banner img {
-    width: 95%;
-    max-width: 320px;
+  .promo-banner img{
+
+    width:520px;
   }
 
-  .form-group input {
-    font-size: 14px;
+  .gif-top img{
+
+    width:140px;
   }
 
-  .btn-premium {
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: none;
+  .btn-premium{
 
-  background: linear-gradient(90deg,#00c6ff,#0072ff);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-
-  box-shadow: 0 0 15px rgba(0,150,255,0.7);
-
-  width: auto;          /* 🔥 KUNCI FIX */
-  min-width: 180px;     /* 🔥 biar tetap enak dilihat */
-}
-
-  .fancy-text {
-    font-size: 13px;
-    line-height: 1.6;
+    font-size:17px;
   }
 
-  .nav-icon {
-    width: 45px;
-    height: 45px;
+  .form-group input{
+
+    font-size:16px;
   }
 
-  .nav-game {
-    padding: 10px;
+  .nav-game{
+
+    max-width:500px;
+  }
+
+  .nav-icon{
+
+    width:60px;
+    height:60px;
   }
 }
-
-
-/* ============================= */
-/* 🔥 RESPONSIVE DESKTOP */
-/* ============================= */
-@media (min-width: 1024px) {
-
-  .login-box {
-    max-width: 420px;
-    padding: 35px;
-  }
-
-  .promo-banner img {
-    max-width: 520px;
-  }
-
-  .btn-premium {
-    font-size: 16px;
-    padding: 14px 30px;
-  }
-
-  .form-group input {
-    font-size: 16px;
-    padding: 12px;
-  }
-
-  .fancy-text {
-    font-size: 15px;
-    line-height: 1.8;
-  }
-
-  .nav-game {
-    max-width: 500px;
-    padding: 16px;
-  }
-
-  .nav-icon {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-
-/* ============================= */
-/* 🔥 FIX CENTER SEMUA DEVICE */
-/* ============================= */
-.wrapper {
-  min-height: 100vh;
-  padding: 20px;
-}
-
-
-/* ============================= */
-/* 🔥 FIX OVERFLOW MOBILE */
-/* ============================= */
-body {
-  overflow-x: hidden;
-}
-
-/* kiri */
-body::before {
-  left: 20px;
-}
-
-/* kanan */
-body::after {
-  right: 20px;
-}
-  
   
 </style>
 </head>
@@ -625,6 +530,12 @@ async function loadUser() {
 
       document.getElementById("result").innerHTML = `
 
+  <input
+    type="hidden"
+    id="claimUsername"
+    value="${user.username}"
+  >
+
   <h3 style="opacity:0.7;">
     Username
   </h3>
@@ -647,21 +558,21 @@ async function loadUser() {
       type="number"
       id="claimInput"
       placeholder="Masukkan nominal claim"
-     style="
-  width:70%;
-  padding:8px;
-  border:none;
-  border-radius:10px;
-  box-sizing:border-box;
-  text-align:center;
-  font-size:13px;
-"
+      style="
+        width:70%;
+        padding:8px;
+        border:none;
+        border-radius:10px;
+        box-sizing:border-box;
+        text-align:center;
+        font-size:13px;
+      "
     >
 
   </div>
 
   <button
-    onclick="claimPoint('${user.username}')"
+    onclick="claimPoint()"
     class="btn-premium"
     style="margin-top:15px;"
   >
@@ -676,8 +587,7 @@ async function loadUser() {
     CEK LAGI
   </button>
 
- `;
-
+`;
       setTimeout(() => {
 
         animateValue(
@@ -752,10 +662,23 @@ document.addEventListener(
 
   }
 );
-async function claimPoint(username) {
+async function claimPoint() {
+
+  const username =
+    document.getElementById("claimUsername").value;
 
   const point =
     document.getElementById("claimInput").value;
+
+  if (!point) {
+
+    alert("Masukkan nominal");
+
+    return;
+  }
+
+  console.log(username);
+  console.log(point);
 
   const url =
     "https://script.google.com/macros/s/AKfycbxoSOfE8PWdw13d8aConHDvatsbLDga4pp47lH6TWuq-zVv2XsuJUJXW2PORxygPQ2s/exec"
@@ -767,9 +690,11 @@ async function claimPoint(username) {
 
     const res = await fetch(url);
 
-    const data = await res.json();
+    const text = await res.text();
 
-    console.log(data);
+    console.log(text);
+
+    const data = JSON.parse(text);
 
     if (data.success) {
 
