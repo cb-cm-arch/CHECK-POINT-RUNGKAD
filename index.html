@@ -516,7 +516,7 @@ async function loadUser() {
 
 
   const url =
-    "https://script.google.com/macros/s/AKfycbxoSOfE8PWdw13d8aConHDvatsbLDga4pp47lH6TWuq-zVv2XsuJUJXW2PORxygPQ2s/exec?username="
+    "https://script.google.com/macros/s/AKfycbyZ_Mpctr_DL7MSvsIW26pEm_CZJVXHu1Ke9ILVmKEpLqwsAjt3hhlXl43nZmn6sKf7/exec?username="
     + encodeURIComponent(input);
 
   try {
@@ -682,11 +682,8 @@ async function claimPoint() {
     return;
   }
 
-  console.log(username);
-  console.log(point);
-
   const url =
-    "https://script.google.com/macros/s/AKfycbxFpkjIA9E6VkXVy79fVsVzeeIIDE0I_h0LBxv6aiov0JM51CN4eIEEgUDuSoNeYEno/exec"
+    "https://script.google.com/macros/s/AKfycbyZ_Mpctr_DL7MSvsIW26pEm_CZJVXHu1Ke9ILVmKEpLqwsAjt3hhlXl43nZmn6sKf7/exec"
     + "?claim=1"
     + "&username=" + encodeURIComponent(username)
     + "&point=" + encodeURIComponent(point);
@@ -695,11 +692,7 @@ async function claimPoint() {
 
     const res = await fetch(url);
 
-    const text = await res.text();
-
-    console.log(text);
-
-    const data = JSON.parse(text);
+    const data = await res.json();
 
     if (data.success) {
 
