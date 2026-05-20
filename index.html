@@ -787,22 +787,22 @@ async function claimPoint() {
 
     if (data.success) {
 
-      // 🔥 UPDATE TANPA RELOAD FULL
-      document.getElementById("point")
-        .innerText =
-        Number(data.sisa)
-        .toLocaleString();
+  const sisaPoint =
+    Number(data.sisa || 0);
 
-      // RESET INPUT
-      document.getElementById("claimInput")
-        .value = "";
+  animateValue(
+    "point",
+    0,
+    sisaPoint,
+    800
+  );
 
-      alert("CLAIM BERHASIL 😎🔥");
+  alert("CLAIM BERHASIL 😎🔥");
 
-    } else {
+} else {
 
-      alert(data.message || "CLAIM GAGAL");
-    }
+  alert(data.message || "CLAIM GAGAL");
+}
 
   } catch (e) {
 
