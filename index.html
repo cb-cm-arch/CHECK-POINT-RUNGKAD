@@ -457,8 +457,6 @@ body{
 
 </div>
 
-<script>
-
 // 🔥 ANIMASI ANGKA
 function animateValue(id, start, end, duration) {
 
@@ -491,6 +489,11 @@ function animateValue(id, start, end, duration) {
 }
 
 
+// 🔥 URL WEB APP BARU
+const API_URL =
+"https://script.google.com/macros/s/AKfycbyg-vX9TUx7Ahv7jlRsG6O0GvcC2A1XeWfxf-rnc0dU71_UDVSbrb09qbk7rlM8KD0/exec";
+
+
 // 🔥 LOAD USER
 async function loadUser() {
 
@@ -514,10 +517,10 @@ async function loadUser() {
   document.getElementById("result").innerHTML =
     "🔄 Loading...";
 
-
   const url =
-    "https://script.google.com/macros/s/AKfycbx35a8HB59Fzwh6ANBUtoFiFf3eKbNhkUQbi8RWAuFUMyLCb_nj6YASy0so804WjGEj/exec?username="
-    + encodeURIComponent(input);
+    API_URL +
+    "?username=" +
+    encodeURIComponent(input);
 
   try {
 
@@ -593,6 +596,7 @@ async function loadUser() {
   </button>
 
 `;
+
       setTimeout(() => {
 
         animateValue(
@@ -667,6 +671,9 @@ document.addEventListener(
 
   }
 );
+
+
+// 🔥 CLAIM POINT
 async function claimPoint() {
 
   const username =
@@ -677,7 +684,7 @@ async function claimPoint() {
       document.getElementById("claimInput").value
     );
 
-  // 🔥 VALIDASI INPUT KOSONG
+  // VALIDASI KOSONG
   if (!point) {
 
     alert("Masukkan nominal");
@@ -685,7 +692,7 @@ async function claimPoint() {
     return;
   }
 
-  // 🔥 MINIMAL CLAIM 5
+  // MINIMAL
   if (point < 5) {
 
     alert("Minimal claim 5 point 😎");
@@ -693,7 +700,7 @@ async function claimPoint() {
     return;
   }
 
-  // 🔥 MAKSIMAL CLAIM 500
+  // MAKSIMAL
   if (point > 500) {
 
     alert("Maksimal claim 500 point 😎");
@@ -702,7 +709,7 @@ async function claimPoint() {
   }
 
   const url =
-    "https://script.google.com/macros/s/AKfycbx35a8HB59Fzwh6ANBUtoFiFf3eKbNhkUQbi8RWAuFUMyLCb_nj6YASy0so804WjGEj/exec"
+    API_URL
     + "?claim=1"
     + "&username=" + encodeURIComponent(username)
     + "&point=" + encodeURIComponent(point);
@@ -713,11 +720,13 @@ async function claimPoint() {
 
     const data = await res.json();
 
+    console.log(data);
+
     if (data.success) {
 
       alert("CLAIM BERHASIL 😎🔥");
 
-      // 🔥 REFRESH DATA
+      // REFRESH DATA
       loadUser();
 
     } else {
@@ -732,6 +741,8 @@ async function claimPoint() {
     alert("ERROR CLAIM");
   }
 }
+
+</script>
 </script>
 </body>
 </html>
