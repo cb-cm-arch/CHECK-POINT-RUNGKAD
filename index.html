@@ -771,7 +771,31 @@ async function claimPoint() {
   claimBtn.disabled = false;
   claimBtn.innerHTML = "CLAIM";
 }
+</script>
+<script>
+
+// Anti Klik Kanan
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+
+// Anti F12 + Ctrl+U + Inspect
+document.addEventListener("keydown", function(e){
+
+  if(
+    e.keyCode == 123 ||
+    (e.ctrlKey && e.key.toLowerCase() == "u") ||
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() == "i") ||
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() == "j") ||
+    (e.ctrlKey && e.key.toLowerCase() == "s")
+  ){
+    e.preventDefault();
+    return false;
+  }
+
+});
 
 </script>
+
 </body>
 </html>
