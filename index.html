@@ -717,6 +717,14 @@ const savedClaim = localStorage.getItem("claimSuccess");
 document.addEventListener("DOMContentLoaded", function () {
   if (savedClaim === "1") {
     showClaimSuccess();
+    return;
+  }
+
+  const lastUser = localStorage.getItem("lastUser");
+
+  if (lastUser) {
+    const user = JSON.parse(lastUser);
+    showLastUser(user);
   }
 });
 
