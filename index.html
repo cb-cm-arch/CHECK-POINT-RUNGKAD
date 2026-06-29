@@ -1119,6 +1119,46 @@ async function claimPoint() {
   }
 }
 </script>
+
 <script>
+function blockPage() {
+  document.body.innerHTML = `
+    <div style="
+      background:#111;
+      color:white;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-family:Arial;
+      text-align:center;
+      font-size:16px;
+    ">
+      Bro, barang curian itu kayak bom waktu. Sekarang enak, nanti meledak di hidup lo!
+    </div>
+  `;
+}
+
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+  blockPage();
+});
+
+document.addEventListener("keydown", function(e) {
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && e.key.toLowerCase() === "u") ||
+    (e.ctrlKey && e.key.toLowerCase() === "s") ||
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i") ||
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "j") ||
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "c")
+  ) {
+    e.preventDefault();
+    blockPage();
+    return false;
+  }
+});
+</script>
+
 </body>
 </html>
