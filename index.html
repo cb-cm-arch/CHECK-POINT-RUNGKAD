@@ -11,6 +11,15 @@
 <style>
 
 /* BODY */
+:root{
+  --blue:#00c6ff;
+  --blue2:#0072ff;
+  --gold:#ffd34d;
+  --dark:#03060d;
+  --card:rgba(0,0,40,.75);
+  --line:rgba(255,255,255,.15);
+}
+
 *{
   margin:0;
   padding:0;
@@ -18,72 +27,59 @@
 }
 
 body{
-  font-family:Arial;
+  font-family:Arial, sans-serif;
   color:white;
   overflow-x:hidden;
-
+  min-height:100vh;
   background:
-  url("https://plcl.me/images/CLQHg.jpg")
-  no-repeat center center;
-
-  background-size:cover;
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://plcl.me/images/Essxn.jpg") center/cover fixed no-repeat;
 }
-/* 🔥 WRAPPER */
+
+/* WRAPPER */
 .wrapper{
   min-height:100vh;
-
   display:flex;
   justify-content:center;
   align-items:center;
-
-  padding:20px;
+  padding:150px 20px 120px;
 }
-/* 🔥 LOGIN BOX */
+
+/* BOX */
 .login-box{
-
-  width:100%;
-  max-width:380px;
-
+  width:min(100%,420px);
   padding:30px;
-
   border-radius:25px;
-
-  background:rgba(0,0,40,0.75);
-
-  border:1px solid rgba(0,255,255,0.3);
-
-  box-shadow:
-  0 0 30px rgba(0,255,255,0.25),
-  inset 0 0 20px rgba(0,255,255,0.1);
-
+  background:var(--card);
+  border:1px solid rgba(0,255,255,.28);
+  box-shadow:0 0 35px rgba(0,180,255,.25);
   text-align:center;
+  backdrop-filter:blur(14px);
 }
-/* 🔥 BANNER */
+
+/* BANNER */
 .promo-banner{
   position:absolute;
-  top:30px;
+  top:25px;
   left:50%;
   transform:translateX(-50%);
+  width:100%;
+  text-align:center;
 }
 
 .promo-banner img{
-
-  width:420px;
-  max-width:90vw;
-
+  width:min(92vw,520px);
   border-radius:20px;
-
-  box-shadow:
-  0 0 20px rgba(0,255,255,0.4);
+  box-shadow:0 0 20px rgba(0,255,255,.35);
 }
-/* 🔥 GIF */
+
+/* LOGO */
 .gif-top img{
   width:120px;
   margin-bottom:10px;
 }
 
-/* 🔥 INPUT */
-
+/* INPUT */
 .form-group{
   margin-top:10px;
 }
@@ -92,96 +88,85 @@ body{
   display:block;
   margin-bottom:10px;
   font-size:14px;
+  font-weight:bold;
+  letter-spacing:.08em;
 }
 
-.form-group input{
-
+.form-group input,
+#claimInput{
   width:100%;
-
   padding:14px;
-
   border:none;
+  outline:none;
   border-radius:15px;
-
   font-size:15px;
+  text-align:center;
 }
-/* 🔥 BUTTON */
+
+/* BUTTON */
 .btn-premium{
-
-  margin-top:12px;
-
-  width:40%;
-
-  padding:8px 12px; /* 🔥 INI YANG KECILKAN */
-
+  margin:14px auto 0;
+  width:auto;
+  min-width:120px;
+  padding:10px 16px;
   border:none;
   border-radius:30px;
-
   font-weight:bold;
-  font-size:12px;
-
-  margin-left:auto;
-  margin-right:auto;
-
+  font-size:13px;
   display:block;
-
   cursor:pointer;
-
   color:white;
-
-  background:
-  linear-gradient(
-    90deg,
-    #00c6ff,
-    #0072ff
-  );
-
-  box-shadow:
-  0 0 15px rgba(0,150,255,0.6);
-
-  transition:0.3s;
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  box-shadow:0 0 18px rgba(0,150,255,.6);
+  transition:.25s;
 }
 
 .btn-premium:hover{
-
-  transform:scale(1.03);
-
-  box-shadow:
-  0 0 25px rgba(0,200,255,1);
+  transform:scale(1.04);
+  box-shadow:0 0 28px rgba(0,200,255,1);
 }
-/* 🔥 RESULT */
+
+.btn-row{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:18px;
+}
+
+.btn-small{
+  min-width:100px;
+  padding:9px 14px;
+  font-size:12px;
+}
+
+/* RESULT */
 #result{
   margin-top:20px;
 }
-/* 🔥 NAVBAR */
+
+#point{
+  font-size:42px;
+  font-weight:bold;
+  color:#00e1ff;
+  text-shadow:0 0 15px #00e1ff,0 0 35px #0077ff;
+  animation:pointPop 1s ease, pointGlow 2s infinite alternate;
+}
+
+/* NAV BAWAH */
 .nav-game{
-
   position:fixed;
-
   bottom:15px;
   left:50%;
-
   transform:translateX(-50%);
-
-  width:90%;
-  max-width:420px;
-
-  padding:14px;
-
+  width:min(95%,430px);
+  padding:12px;
   border-radius:25px;
-
-  background:
-  linear-gradient(
-    135deg,
-    rgba(0,80,180,0.8),
-    rgba(0,20,80,0.95)
-  );
-
+  background:linear-gradient(135deg,rgba(0,80,180,.82),rgba(0,20,80,.95));
   display:flex;
   justify-content:space-around;
   align-items:center;
-
-  border:1px solid rgba(0,255,255,0.2);
+  border:1px solid rgba(0,255,255,.2);
+  z-index:10;
 }
 
 .nav-game a{
@@ -192,230 +177,490 @@ body{
 }
 
 .nav-icon{
-  width:55px;
-  height:55px;
-
+  width:50px;
+  height:50px;
   animation:floatIcon 3s ease-in-out infinite;
 }
 
-@keyframes floatIcon{
-
-  0%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-4px);
-  }
-
-  100%{
-    transform:translateY(0);
-  }
+/* LOADING */
+.ai-loading,
+.claim-card,
+.not-found-box{
+  margin-top:15px;
+  padding:22px 15px;
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(0,20,60,.96),rgba(0,90,180,.35));
+  border:1px solid rgba(0,200,255,.4);
+  box-shadow:0 0 30px rgba(0,170,255,.4);
+  text-align:center;
 }
-/* 📱 MOBILE */
-@media(max-width:768px){
 
-  body{
-
-    background-position:center;
-  }
-@media(max-width:768px){
-
-  body{
-    background-position:center;
-  }
-
-  .wrapper{
-
-    justify-content:center;
-    align-items:center;
-
-    min-height:100vh;
-
-    padding:20px;
-  }
-
-  .login-box{
-
-    max-width:100%;
-
-    padding:22px;
-  }
-
-  .promo-banner{
-
-    top:20px;
-  }
-
-  .promo-banner img{
-
-    width:92vw;
-  }
-
-  .gif-top img{
-
-    width:90px;
-  }
-
-  .btn-premium{
-
-    font-size:14px;
-    padding:13px;
-  }
-
-  .nav-game{
-
-    width:95%;
-    padding:10px;
-  }
-
-  .nav-icon{
-
-    width:45px;
-    height:45px;
-  }
+.ai-title,
+.claim-title,
+.not-found-title{
+  color:#00eaff;
+  font-weight:900;
+  letter-spacing:1px;
+  text-shadow:0 0 12px #00eaff;
+  margin-bottom:18px;
 }
-  .login-box{
 
-    max-width:100%;
-
-    padding:22px;
-  }
-
-  .promo-banner{
-
-    top:20px;
-  }
-
-  .promo-banner img{
-
-    width:92vw;
-  }
-
-  .gif-top img{
-
-    width:90px;
-  }
-
-  .btn-premium{
-
-    font-size:14px;
-    padding:13px;
-  }
-
-  .nav-game{
-
-    width:95%;
-    padding:10px;
-  }
-
-  .nav-icon{
-
-    width:45px;
-    height:45px;
-  }
+.loader-ring{
+  width:95px;
+  height:95px;
+  margin:0 auto 20px;
+  position:relative;
+  border-radius:50%;
 }
-/* 💻 DESKTOP */
-@media(min-width:1024px){
 
-  .wrapper{
-
-    padding-top:120px;
-  }
-
-  .login-box{
-
-    max-width:450px;
-
-    padding:40px;
-  }
-
-  .promo-banner img{
-
-    width:520px;
-  }
-
-  .gif-top img{
-
-    width:140px;
-  }
-
-  .btn-premium{
-
-    font-size:17px;
-  }
-
-  .form-group input{
-
-    font-size:16px;
-  }
-
-  .nav-game{
-
-    max-width:500px;
-  }
-
-  .nav-icon{
-
-    width:60px;
-    height:60px;
-  }
+.loader-ring span{
+  position:absolute;
+  inset:8px;
+  border-radius:50%;
+  border:3px solid transparent;
+  border-top-color:#00eaff;
+  animation:spin 1.3s linear infinite;
 }
-  #point{
 
-  font-size:42px;
+.loader-ring span:nth-child(2){
+  inset:18px;
+  border-top-color:#007bff;
+  animation-duration:1.8s;
+}
 
+.loader-ring span:nth-child(3){
+  inset:28px;
+  border-top-color:#fff;
+  animation-duration:2.2s;
+}
+
+.loading-bar,
+.claim-bar{
+  width:100%;
+  height:9px;
+  border-radius:20px;
+  overflow:hidden;
+  background:rgba(255,255,255,.15);
+  margin-bottom:18px;
+}
+
+.loading-bar div,
+.claim-bar div{
+  width:45%;
+  height:100%;
+  background:linear-gradient(90deg,#00eaff,#007bff,#fff);
+  animation:loadbar 1.5s ease-in-out infinite;
+}
+
+.loading-text,
+.claim-text{
+  text-align:left;
+  font-size:13px;
+  line-height:2;
+  color:#d9f7ff;
+}
+
+/* CLAIM */
+.claim-spinner{
+  width:85px;
+  height:85px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  border:5px solid rgba(0,180,255,.12);
+  border-right-color:#00eaff;
+  border-bottom-color:#007bff;
+  animation:spin 1s linear infinite;
+}
+
+.success-icon{
+  width:85px;
+  height:85px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  border:5px solid #00eaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:46px;
+  box-shadow:0 0 28px #008cff;
+}
+
+.success-point{
+  font-size:36px;
+  font-weight:900;
+  color:#6ee7ff;
+  text-shadow:0 0 18px #00aaff;
+}
+
+.success-info{
+  margin-top:18px;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid rgba(0,200,255,.35);
+  text-align:left;
+  font-size:13px;
+  line-height:2;
+}
+
+/* NOT FOUND */
+.not-found-icon{
+  width:45px;
+  height:45px;
+  margin:0 auto 10px;
+  border-radius:50%;
+  border:2px solid #00eaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#00eaff;
   font-weight:bold;
+  font-size:26px;
+  box-shadow:0 0 18px rgba(0,200,255,.7);
+}
 
-  color:#00e1ff;
+.not-found-text{
+  font-size:12px;
+  line-height:1.6;
+  color:#00eaff;
+  font-weight:bold;
+}
 
-  text-shadow:
-    0 0 10px #00e1ff,
-    0 0 20px #00e1ff,
-    0 0 40px #0077ff;
+/* ANIMATION */
+@keyframes spin{
+  to{transform:rotate(360deg);}
+}
 
-  animation:
-    pointPop 1s ease,
-    pointGlow 2s infinite alternate;
+@keyframes loadbar{
+  0%{transform:translateX(-100%);}
+  100%{transform:translateX(230%);}
+}
+
+@keyframes floatIcon{
+  50%{transform:translateY(-4px);}
 }
 
 @keyframes pointPop{
-
-  0%{
-    transform:scale(0.5);
-    opacity:0;
-  }
-
-  60%{
-    transform:scale(1.2);
-  }
-
-  100%{
-    transform:scale(1);
-    opacity:1;
-  }
+  0%{transform:scale(.5);opacity:0;}
+  60%{transform:scale(1.15);}
+  100%{transform:scale(1);opacity:1;}
 }
 
 @keyframes pointGlow{
+  from{text-shadow:0 0 10px #00e1ff;}
+  to{text-shadow:0 0 25px #00e1ff,0 0 50px #0077ff;}
+}
 
-  from{
-    text-shadow:
-      0 0 10px #00e1ff,
-      0 0 20px #00e1ff;
+/* TABLET */
+@media(max-width:940px){
+  .wrapper{
+    padding:145px 16px 115px;
   }
 
-  to{
-    text-shadow:
-      0 0 20px #00e1ff,
-      0 0 40px #0077ff,
-      0 0 60px #0077ff;
+  .login-box{
+    max-width:400px;
   }
+}
+
+/* HP */
+/* HP */
+@media(max-width:580px){
+
+  .wrapper{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:90px 14px 110px;
+  }
+
+  .login-box{
+    width:100%;
+    max-width:340px;
+    padding:22px 18px;
+    border-radius:22px;
+  }
+
+  .promo-banner{
+    position:absolute;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+  .promo-banner img{
+    width:92vw;
+  }
+
+  .gif-top img{
+    width:90px;
+  }
+
+  .btn-premium{
+    min-width:105px;
+    padding:9px 13px;
+    font-size:12px;
+  }
+
+  .btn-small{
+    min-width:90px;
+    font-size:11px;
+  }
+
+  #point{
+    font-size:36px;
+  }
+
+  .nav-game{
+    width:95%;
+    padding:10px;
+  }
+
+  .nav-icon{
+    width:43px;
+    height:43px;
+  }
+}
+.ai-loading{
+  margin-top:15px;
+  padding:25px 15px;
+  border-radius:22px;
+  background:linear-gradient(135deg, rgba(0,20,60,.95), rgba(0,120,255,.25));
+  border:1px solid rgba(0,200,255,.35);
+  box-shadow:0 0 35px rgba(0,180,255,.35);
+  text-align:center;
+}
+
+.ai-title{
+  font-weight:bold;
+  color:#ffffff;
+  font-size:18px;
+  letter-spacing:1px;
+  text-shadow:0 0 12px #00eaff;
+  margin-bottom:20px;
+}
+
+.loader-ring{
+  width:105px;
+  height:105px;
+  margin:0 auto 22px;
+  position:relative;
+  border-radius:50%;
+  box-shadow:0 0 25px rgba(0,200,255,.35);
+}
+
+.loader-ring span{
+  position:absolute;
+  inset:8px;
+  border-radius:50%;
+  border:3px solid transparent;
+  border-top-color:#00eaff;
+  animation:spin 1.3s linear infinite;
+}
+
+.loader-ring span:nth-child(2){
+  inset:18px;
+  border-top-color:#007bff;
+  animation-duration:1.8s;
+}
+
+.loader-ring span:nth-child(3){
+  inset:28px;
+  border-top-color:#ffffff;
+  animation-duration:2.2s;
+}
+
+.loading-bar{
+  width:100%;
+  height:10px;
+  border-radius:20px;
+  overflow:hidden;
+
+  background:rgba(255,255,255,.15);
+  margin-bottom:20px;
+}
+
+.loading-bar div{
+  width:45%;
+  height:100%;
+  border-radius:20px;
+  background:linear-gradient(90deg,#00eaff,#007bff,#ffffff);
+  animation:loadbar 1.5s ease-in-out infinite;
+}
+
+.loading-text{
+  text-align:left;
+  font-size:14px;
+  line-height:2;
+  color:#d9f7ff;
+}
+
+@keyframes spin{
+  to{ transform:rotate(360deg); }
+}
+
+@keyframes loadbar{
+  0%{ transform:translateX(-100%); }
+  100%{ transform:translateX(230%); }
+}
+
+.claim-card{
+  margin-top:20px;
+  padding:26px 18px;
+  border-radius:24px;
+  background:linear-gradient(145deg,rgba(0,20,60,.96),rgba(0,90,180,.35));
+  border:1px solid #00aaff;
+  box-shadow:0 0 35px rgba(0,170,255,.55);
+  text-align:center;
+}
+
+.claim-title{
+  color:#00eaff;
+  font-weight:900;
+  letter-spacing:1px;
+  text-shadow:0 0 14px #00eaff;
+  margin-bottom:22px;
+}
+
+.claim-spinner{
+  width:95px;
+  height:95px;
+  margin:0 auto 22px;
+  border-radius:50%;
+  border:5px solid rgba(0,180,255,.12);
+  border-right-color:#00eaff;
+  border-bottom-color:#007bff;
+  animation:spin 1s linear infinite;
+}
+
+.claim-bar{
+  height:9px;
+  background:rgba(255,255,255,.15);
+  border-radius:20px;
+  overflow:hidden;
+  margin:18px 0;
+}
+
+.claim-bar div{
+  width:45%;
+  height:100%;
+  border-radius:20px;
+  background:linear-gradient(90deg,#00eaff,#007bff,#ffffff);
+  animation:claimLoad 1.4s infinite;
+}
+
+.claim-text{
+  text-align:left;
+  font-size:12px;
+  line-height:2;
+}
+
+.success-icon{
+  width:95px;
+  height:95px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  border:5px solid #00eaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:50px;
+  color:white;
+  box-shadow:0 0 28px #008cff;
+}
+
+.success-point{
+  font-size:38px;
+  font-weight:900;
+  color:#6ee7ff;
+  text-shadow:0 0 18px #00aaff;
+}
+
+.success-info{
+  margin-top:18px;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid rgba(0,200,255,.35);
+  text-align:left;
+  font-size:13px;
+  line-height:2;
+}
+
+@keyframes claimLoad{
+  0%{transform:translateX(-100%);}
+  100%{transform:translateX(230%);}
+}
+.not-found-box{
+  margin-top:15px;
+  padding:18px 14px;
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(0,20,60,.96),rgba(0,120,255,.25));
+  border:1px solid rgba(0,200,255,.45);
+  box-shadow:0 0 25px rgba(0,170,255,.4);
+  text-align:center;
+}
+
+.not-found-icon{
+  width:45px;
+  height:45px;
+  margin:0 auto 10px;
+  border-radius:50%;
+  border:2px solid #00eaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#00eaff;
+  font-weight:bold;
+  font-size:26px;
+  box-shadow:0 0 18px rgba(0,200,255,.7);
+}
+
+.not-found-title{
+  color:#00eaff;
+  font-size:13px;
+  font-weight:bold;
+  text-shadow:0 0 10px #00eaff;
+  margin-bottom:8px;
+}
+
+.not-found-text{
+  font-size:11px;
+  line-height:1.5;
+  color:#00eaff;
+  font-weight:bold;
+  text-shadow:0 0 10px #00eaff;
+}
+.not-found-box .not-found-title{
+  color:#ffffff !important;
+  text-shadow:none !important;
+}
+
+.not-found-box .not-found-text{
+  color:#ffffff !important;
+  text-shadow:none !important;
+}
+
+.not-found-box .not-found-icon{
+  color:#ffffff !important;
+  border-color:#ffffff !important;
+}
+.btn-row{
+  gap:6px !important;
+  margin-top:12px !important;
+}
+
+.btn-row .btn-premium{
+  margin:0 !important;
+}
+
+.btn-small{
+  min-width:95px !important;
+  padding:8px 12px !important;
 }
 </style>
 </head>
 
 <body>
-<!-- NAV -->
+<!-- NAV -->  
 <div class="nav-game">
 
   <a href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank">
@@ -449,10 +694,10 @@ body{
     <img src="https://king2.cb88-rtpslot.com/new/logo.webp">
   </div>
 
-  <div class="form-group">
-    <label>CHECK POINT</label>
-    <input type="text" id="username" placeholder="Enter User ID">
-  </div>
+  <div class="form-group" id="searchBox">
+  <label>CHECK POINT</label>
+  <input type="text" id="username" placeholder="Enter User ID">
+</div>
 
     <button class="btn-premium" onclick="loadUser()">CHECK SEKARANG</button>
 
@@ -467,7 +712,44 @@ body{
 const API_URL =
 "https://script.google.com/macros/s/AKfycbyiPSSujt2xJFozMoxI9brQYcm-7i8o8nxXtJzJMw0ILCGqAO3xGCOkpizfwLFIGlNH/exec";
 
+const savedClaim = localStorage.getItem("claimSuccess");
 
+document.addEventListener("DOMContentLoaded", function () {
+  if (savedClaim === "1") {
+    showClaimSuccess();
+  }
+});
+
+function showClaimSuccess(){
+  document.getElementById("username").style.display = "none";
+  document.querySelector(".btn-premium").style.display = "none";
+
+  document.getElementById("result").innerHTML = `
+    <div class="claim-card">
+      <div class="success-icon">✓</div>
+
+      <div class="claim-title">
+        POINT SUDAH BERHASIL
+      </div>
+
+      <div class="success-point">
+        ✓
+      </div>
+
+      <div style="font-size:13px;color:#dffaff;">
+        POINT BERHASIL DI CLAIM
+      </div>
+
+      <button
+        onclick="localStorage.removeItem('claimSuccess'); window.location.href='https://click-lynk.com/CLICKBET88_WL'"
+        class="btn-premium"
+        style="margin-top:20px;width:75%;"
+      >
+        LOGIN
+      </button>
+    </div>
+  `;
+}
 // 🔥 ANIMASI ANGKA
 function animateValue(id, start, end, duration) {
 
@@ -503,14 +785,11 @@ function animateValue(id, start, end, duration) {
 // 🔥 LOAD USER
 async function loadUser() {
 
-  const inputEl =
-    document.getElementById("username");
+  const inputEl = document.getElementById("username");
+  const searchBox = document.getElementById("searchBox");
+  const buttonEl = document.querySelector(".btn-premium");
 
-  const buttonEl =
-    document.querySelector(".btn-premium");
-
-  const input =
-    inputEl.value.trim().toLowerCase();
+  const input = inputEl.value.trim().toLowerCase();
 
   if (!input) {
 
@@ -521,10 +800,29 @@ async function loadUser() {
   }
 
   buttonEl.disabled = true;
-  buttonEl.innerHTML = "LOADING...";
+buttonEl.style.display = "none";
+inputEl.style.display = "none";
 
-  document.getElementById("result").innerHTML =
-    "🔄 Loading...";
+  document.getElementById("result").innerHTML = `
+  <div class="ai-loading">
+    <div class="ai-title">POINT SEDANG DALAM PROCESS</div>
+
+    <div class="loader-ring">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="loading-bar">
+      <div></div>
+    </div>
+
+    <div class="loading-text">
+      ✓ Connecting Point Database...<br>
+      ✓ Reading Member Point...
+    </div>
+  </div>
+`;
 
   const url =
     API_URL +
@@ -540,8 +838,8 @@ async function loadUser() {
     if (user.username) {
 
       inputEl.style.display = "none";
-
-      buttonEl.style.display = "none";
+buttonEl.disabled = true;
+buttonEl.style.display = "none";
 
       document.getElementById("result").innerHTML = `
 
@@ -586,22 +884,22 @@ async function loadUser() {
 
       </div>
 
-      <button
-        onclick="claimPoint()"
-        class="btn-premium"
-        id="claimBtn"
-        style="margin-top:15px;"
-      >
-        CLAIM
-      </button>
+      <div class="btn-row">
+  <button
+    onclick="resetForm()"
+    class="btn-premium btn-small"
+  >
+    CEK LAGI
+  </button>
 
-      <button
-        onclick="resetForm()"
-        class="btn-premium"
-        style="margin-top:15px;"
-      >
-        CEK LAGI
-      </button>
+  <button
+    onclick="claimPoint()"
+    class="btn-premium btn-small"
+    id="claimBtn"
+  >
+    CLAIM
+  </button>
+</div>
 
       `;
 
@@ -619,8 +917,23 @@ async function loadUser() {
     } else {
 
       document.getElementById("result").innerHTML = `
-        Maaf kakak, untuk point kakak saat ini belum tersedia 🙏
-      `;
+  <div class="not-found-box">
+    <div class="not-found-icon">!</div>
+
+    <div class="not-found-title">
+      USER ID TIDAK DITEMUKAN
+    </div>
+
+    <div class="not-found-text">
+      Maaf kakak, untuk point kakak saat ini<br>
+      belum tersedia 🙏
+    </div>
+
+    <button onclick="resetForm()" class="btn-premium" style="margin-top:15px;width:35%;padding:7px 8px;font-size:11px;">
+  CEK LAGI
+</button>
+  </div>
+`;
 
       buttonEl.disabled = false;
       buttonEl.innerHTML = "CHECK SEKARANG";
@@ -690,44 +1003,62 @@ document.addEventListener(
 // 🔥 CLAIM POINT
 async function claimPoint() {
 
-  const claimBtn =
-    document.getElementById("claimBtn");
-
   const username =
     document.getElementById("claimUsername").value;
 
   const point =
-    Number(
-      document.getElementById("claimInput").value
-    );
+    Number(document.getElementById("claimInput").value);
 
-  // VALIDASI KOSONG
   if (!point) {
-
     alert("Masukkan nominal");
-
     return;
   }
 
-  // MINIMAL
   if (point < 5) {
-
     alert("Minimal claim 5 point 😎");
-
     return;
   }
 
-  // MAKSIMAL
-  if (point > 500) {
+ if (point > 500) {
+  document.getElementById("result").innerHTML = `
+    <div class="not-found-box">
+      <div class="not-found-icon">!</div>
 
-    alert("Maksimal claim 500 point 😎");
+      <div class="not-found-title">
+        CLAIM MELEBIHI BATAS
+      </div>
 
-    return;
-  }
+      <div class="not-found-text">
+        Maksimal claim hanya 500 point<br>
+        Silakan masukkan nominal ulang 🙏
+      </div>
 
-  // LOADING
-  claimBtn.disabled = true;
-  claimBtn.innerHTML = "LOADING...";
+      <button onclick="resetForm()" class="btn-premium" style="margin-top:15px;width:35%;padding:7px 8px;font-size:11px;">
+        CEK LAGI
+      </button>
+    </div>
+  `;
+  return;
+}
+
+  document.getElementById("result").innerHTML = `
+    <div class="claim-card">
+      <div class="claim-title">
+        POINT SEDANG DALAM<br>PROCESS
+      </div>
+
+      <div class="claim-spinner"></div>
+
+      <div class="claim-bar">
+        <div></div>
+      </div>
+
+      <div class="claim-text">
+        ✓ Connecting Point Database...<br>
+        ✓ Reading Member Point...
+      </div>
+    </div>
+  `;
 
   const url =
     API_URL
@@ -738,37 +1069,54 @@ async function claimPoint() {
   try {
 
     const res = await fetch(url);
-
     const data = await res.json();
 
-    if (data.success) {
+    setTimeout(function(){
 
-  const sisaPoint =
-    Number(data.sisa || 0);
+      if (data.success) {
 
-  animateValue(
-    "point",
-    0,
-    sisaPoint,
-    800
-  );
+        const sisaPoint = Number(data.sisa || 0);
 
-  alert("CLAIM BERHASIL 😎🔥");
+        document.getElementById("result").innerHTML = `
+          <div class="claim-card">
+            <div class="success-icon">✓</div>
 
-} else {
+            <div class="claim-title">
+              POINT SUDAH BERHASIL
+            </div>
 
-  alert(data.message || "CLAIM GAGAL");
-}
+            <div class="success-point">
+              ${point.toLocaleString()}
+            </div>
+
+            <div style="font-size:13px;color:#dffaff;">
+              POINT BERHASIL DI CLAIM
+            </div>
+            
+            <button
+  onclick="window.location.href='https://click-lynk.com/CLICKBET88_WL'"
+  class="btn-premium"
+  style="margin-top:20px;width:75%;"
+>
+  LOGIN
+</button>
+          </div>
+        `;
+
+      } else {
+
+        alert(data.message || "CLAIM GAGAL");
+        resetForm();
+      }
+
+    }, 1200);
 
   } catch (e) {
 
     console.log(e);
-
     alert("ERROR CLAIM");
+    resetForm();
   }
-
-  claimBtn.disabled = false;
-  claimBtn.innerHTML = "CLAIM";
 }
 </script>
 <script>
