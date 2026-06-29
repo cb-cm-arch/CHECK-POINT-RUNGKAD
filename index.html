@@ -788,8 +788,34 @@ function animateValue(id, start, end, duration) {
 
   }, stepTime);
 }
+    
+function showLastUser(user) {
+  document.getElementById("username").style.display = "none";
+  document.querySelector(".btn-premium").style.display = "none";
 
+  document.getElementById("result").innerHTML = `
+    <input type="hidden" id="claimUsername" value="${user.username}">
 
+    <h3 style="opacity:0.7;">Username</h3>
+    <h2 style="color:#00c6ff;">${user.username}</h2>
+
+    <h3 style="margin-top:10px;">Sisa Point</h3>
+    <h1 id="point">${Number(user.point || 0).toLocaleString()}</h1>
+
+    <div style="margin-top:20px; width:100%;">
+      <input
+        type="number"
+        id="claimInput"
+        placeholder="Masukkan nominal claim"
+        style="width:70%;padding:8px;border:none;border-radius:10px;text-align:center;font-size:13px;">
+    </div>
+
+    <div class="btn-row">
+      <button onclick="resetForm()" class="btn-premium btn-small">CEK LAGI</button>
+      <button onclick="claimPoint()" class="btn-premium btn-small" id="claimBtn">CLAIM</button>
+    </div>
+  `;
+}
 // 🔥 LOAD USER
 async function loadUser() {
 
@@ -844,10 +870,11 @@ inputEl.style.display = "none";
     const user = await res.json();
 
     if (user.username) {
+  localStorage.setItem("lastUser", JSON.stringify(user));
+  showLastUser(user);
+  return;
 
-      inputEl.style.display = "none";
-buttonEl.disabled = true;
-buttonEl.style.display = "none";
+  inputEl.style.display = "none";
 
       document.getElementById("result").innerHTML = `
 
@@ -962,10 +989,10 @@ buttonEl.style.display = "none";
 
 // 🔥 RESET
 function resetForm() {
+  localStorage.removeItem("lastUser");
 
   const inputEl =
     document.getElementById("username");
-
   const buttonEl =
     document.querySelector(".btn-premium");
 
