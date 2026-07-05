@@ -1167,22 +1167,13 @@ function blockPage() {
   `;
 }
 
-document.addEventListener("contextmenu", function(e) {
-  e.preventDefault();
-  blockPage();
-});
+/* klik kanan tetap bisa */
+document.oncontextmenu = null;
 
 document.addEventListener("keydown", function(e) {
   const key = e.key.toLowerCase();
 
-  if (
-    key === "f12" ||
-    (e.ctrlKey && key === "u") ||
-    (e.ctrlKey && key === "s") ||
-    (e.ctrlKey && e.shiftKey && key === "i") ||
-    (e.ctrlKey && e.shiftKey && key === "j") ||
-    (e.ctrlKey && e.shiftKey && key === "c")
-  ) {
+  if (e.ctrlKey && key === "u") {
     e.preventDefault();
     e.stopPropagation();
     blockPage();
