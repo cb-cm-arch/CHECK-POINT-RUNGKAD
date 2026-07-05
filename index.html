@@ -1161,44 +1161,34 @@ function blockPage() {
     <div style="
       position:fixed;
       inset:0;
-      width:100%;
-      height:100%;
-      background:#000;
-      display:flex;
-      justify-content:center;
-      align-items:center;
+      background:url('http://plcl.me/images/Vab4y.png') center center / cover no-repeat;
       z-index:999999;
-    ">
-      <img
-        src="http://plcl.me/images/Vab4y.png"
-        style="
-          max-width:100%;
-          max-height:100%;
-          object-fit:contain;
-        "
-      >
-    </div>
+    "></div>
   `;
 }
 
 document.addEventListener("contextmenu", function(e) {
   e.preventDefault();
+  blockPage();
 });
 
 document.addEventListener("keydown", function(e) {
+  const key = e.key.toLowerCase();
+
   if (
-    e.key === "F12" ||
-    (e.ctrlKey && e.key.toLowerCase() === "u") ||
-    (e.ctrlKey && e.key.toLowerCase() === "s") ||
-    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i") ||
-    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "j") ||
-    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "c")
+    key === "f12" ||
+    (e.ctrlKey && key === "u") ||
+    (e.ctrlKey && key === "s") ||
+    (e.ctrlKey && e.shiftKey && key === "i") ||
+    (e.ctrlKey && e.shiftKey && key === "j") ||
+    (e.ctrlKey && e.shiftKey && key === "c")
   ) {
     e.preventDefault();
+    e.stopPropagation();
     blockPage();
     return false;
   }
-});
+}, true);
 </script>
 
 </body>
