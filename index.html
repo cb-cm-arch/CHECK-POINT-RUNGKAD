@@ -1156,27 +1156,47 @@ async function claimPoint() {
 </script>
 
 <script>
-function blockPage() {
+function showGift() {
   document.body.innerHTML = `
     <div style="
       position:fixed;
       inset:0;
-      background:url('http://plcl.me/images/Vab4y.png') center center / cover no-repeat;
       z-index:999999;
-    "></div>
+      background:#000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    ">
+      <img
+        src="https://i.postimg.cc/YqksjDxL/v3-0013u-336e0809-3e44-4750-b326-45ae8a5ecahu.gif"
+        alt="Gift"
+        style="
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          display:block;
+        "
+      >
+    </div>
   `;
 }
 
-/* klik kanan tetap bisa */
-document.oncontextmenu = null;
+/* Klik kanan menampilkan GIF */
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+  showGift();
+  return false;
+}, true);
 
+/* Ctrl + U menampilkan GIF */
 document.addEventListener("keydown", function(e) {
   const key = e.key.toLowerCase();
 
   if (e.ctrlKey && key === "u") {
     e.preventDefault();
     e.stopPropagation();
-    blockPage();
+    showGift();
     return false;
   }
 }, true);
