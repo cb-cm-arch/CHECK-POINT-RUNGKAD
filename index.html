@@ -1169,7 +1169,7 @@ function showGift() {
       overflow:hidden;
     ">
       <img
-        src="https://i.postimg.cc/YqksjDxL/v3-0013u-336e0809-3e44-4750-b326-45ae8a5ecahu.gif"
+        src="http://plcl.me/images/vEFdd.png"
         alt="Gift"
         style="
           width:100%;
@@ -1182,14 +1182,13 @@ function showGift() {
   `;
 }
 
-/* Klik kanan menampilkan GIF */
+/* Klik kanan diblokir, tetapi tidak menampilkan apa pun */
 document.addEventListener("contextmenu", function(e) {
   e.preventDefault();
-  showGift();
   return false;
 }, true);
 
-/* Ctrl + U menampilkan GIF */
+/* Hanya Ctrl + U yang menampilkan GIF */
 document.addEventListener("keydown", function(e) {
   const key = e.key.toLowerCase();
 
